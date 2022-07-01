@@ -1,0 +1,19 @@
+{
+  "name": "bible-for-families",
+  "version": "1.0.0",
+  "description": "Source code for the site BibleForFamilies.co.il",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoavmil/BibleForFamilies.git"
+  },
+  "author": "yoavmil@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoavmil/BibleForFamilies/issues"
+  },
+  "homepage": "https://github.com/yoavmil/BibleForFamilies#readme"
+}
