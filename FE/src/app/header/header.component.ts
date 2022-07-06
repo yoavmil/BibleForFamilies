@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public hasUser(): boolean { return this.userService.hasUser; }
-  public isMobile(): boolean { return this.deviceService.isMobile(); }
+  public get hasUser(): boolean { return this.userService.hasUser; }
+  public get isMobile(): boolean {
+    return this.deviceService.isMobile();
+  }
 }

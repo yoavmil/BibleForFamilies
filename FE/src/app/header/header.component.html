@@ -1,26 +1,26 @@
 <mat-toolbar class="RTL">
-    <H1>התנ"ך למשפחות</H1>
-    <span class="flex-spacer"></span>
+    <mat-toolbar-row>
+        <span>התנ"ך למשפחות</span>
+        <span class="flex-spacer"></span>
 
-    <app-books *ngIf="!isMobile"></app-books>
+        <app-books *ngIf="!isMobile">say what?!</app-books>
 
-    <span class="flex-spacer"></span>
-    <span class="navigation">
-        <span *ngIf="!hasUser">
-            <a>כניסה</a>
-            <span class="small-divider">|</span>
-            <a>רישום</a>
+        <span class="flex-spacer"></span>
+        <span>
+            <span *ngIf="!hasUser">
+                <a>כניסה</a>
+                <span class="small-divider">|</span>
+                <a>רישום</a>
+            </span>
+            <span *ngIf="hasUser">
+                <a>פרופיל</a>
+                <span class="small-divider">|</span>
+                <a>יציאה</a>
+            </span>
         </span>
-        <span *ngIf="hasUser">
-            <a>פרופיל</a>
-            <span class="small-divider">|</span>
-            <a>יציאה</a>
-        </span>
-    </span>
-
-    <!-- <span *ngIf="isMobile"> this doesn't work
-        <mat-toolbar-row>
-            <app-books></app-books>
-        </mat-toolbar-row>
-    </span> -->
+    </mat-toolbar-row>
+    
+    <mat-toolbar-row *ngIf="isMobile">
+        <app-books></app-books>
+    </mat-toolbar-row>
 </mat-toolbar>
