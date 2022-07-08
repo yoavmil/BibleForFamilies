@@ -1,26 +1,17 @@
-<mat-toolbar class="RTL">
-    <mat-toolbar-row>
-        <span>התנ"ך למשפחות</span>
-        <span class="flex-spacer"></span>
+<div class="RTL header" >
+    <span>התנ"ך למשפחות</span>
 
-        <app-books *ngIf="!isMobile">say what?!</app-books>
-
-        <span class="flex-spacer"></span>
-        <span>
-            <span *ngIf="!hasUser">
-                <a>כניסה</a>
-                <span class="small-divider">|</span>
-                <a>רישום</a>
-            </span>
-            <span *ngIf="hasUser">
-                <a>פרופיל</a>
-                <span class="small-divider">|</span>
-                <a>יציאה</a>
-            </span>
+    <app-books *ngIf="!isMobile"></app-books>
+    <span>
+        <span *ngIf="!hasUser">
+            <a>כניסה</a>
+            <span class="small-divider">|</span>
+            <a>רישום</a>
         </span>
-    </mat-toolbar-row>
-    
-    <mat-toolbar-row *ngIf="isMobile">
-        <app-books></app-books>
-    </mat-toolbar-row>
-</mat-toolbar>
+        <span *ngIf="hasUser">
+            <a>פרופיל</a>
+            <span class="small-divider">|</span>
+            <a>יציאה</a>
+        </span>
+    </span>
+</div>
