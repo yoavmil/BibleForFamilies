@@ -2,9 +2,19 @@
 
 .header {
     background: black;
-    color: white;
+    color: var(--header-text-color);
     padding: 0.5rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+a {
+    color: var(--header-text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--header-text-hover-color);
+    text-decoration: underline;
 }
