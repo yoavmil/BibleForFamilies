@@ -5,12 +5,12 @@
     <span>
         <span *ngIf="!hasUser">
             <a>כניסה</a>
-            <span class="small-divider">|</span>
+            <app-vertical-divider></app-vertical-divider>
             <a>רישום</a>
         </span>
         <span *ngIf="hasUser">
             <a>פרופיל</a>
-            <span class="small-divider">|</span>
+            <app-vertical-divider></app-vertical-divider>
             <a>יציאה</a>
         </span>
     </span>

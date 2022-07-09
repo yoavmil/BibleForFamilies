@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../Services/user.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-
+import { VerticalDividerComponent } from '../building-blocks/vertical-divider/vertical-divider.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
