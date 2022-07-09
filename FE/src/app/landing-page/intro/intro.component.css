@@ -1,0 +1,13 @@
+.big-title {
+    font-size: xxx-large;
+}
+
+.subtitle {
+    font-size: x-large;
+}
+
+.intro-wrapper {
+    position: absolute;
+    right: 25%;
+    top: 25%;
+}

@@ -3,6 +3,8 @@
 html,
 body {
     height: 100%;
+    overflow: hidden;
+    /*not sure about this*/
 }
 
 body {
@@ -13,4 +15,8 @@ body {
 :root {
     --header-text-color: white;
     --header-text-hover-color: lightcoral;
+}
+
+.RTL {
+    direction: rtl;
 }

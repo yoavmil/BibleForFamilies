@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { BooksComponent } from './books/books.component';
 import { BuildingBlocksModule } from './building-blocks/building-blocks.module';
+import { LandingPageModule } from './landing-page/landing-page.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BuildingBlocksModule } from './building-blocks/building-blocks.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    BuildingBlocksModule
+    BuildingBlocksModule,
+    LandingPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
