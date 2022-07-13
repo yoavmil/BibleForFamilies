@@ -15,3 +15,7 @@
 .subtitle {
   font-size: x-large;
 }
+
+app-goals {
+  align-self: stretch;
+}
