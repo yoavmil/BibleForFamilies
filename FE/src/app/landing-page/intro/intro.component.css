@@ -1,13 +1,17 @@
+.intro-wrapper {
+  background-color: var(--base-background-color);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 2rem 0;
+}
+
 .big-title {
-    font-size: xxx-large;
+  font-size: xxx-large;
 }
 
 .subtitle {
-    font-size: x-large;
-}
-
-.intro-wrapper {
-    position: absolute;
-    right: 25%;
-    top: 25%;
+  font-size: x-large;
 }

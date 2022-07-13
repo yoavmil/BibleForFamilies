@@ -2,21 +2,21 @@
 
 html,
 body {
-    height: 100%;
-    overflow: hidden;
-    /*not sure about this*/
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 :root {
-    --header-text-color: white;
-    --header-text-hover-color: lightcoral;
+  --header-text-color: beige;
+  --header-text-hover-color: lightcoral;
+  --base-background-color: beige;
 }
 
 .RTL {
-    direction: rtl;
+  direction: rtl;
 }
