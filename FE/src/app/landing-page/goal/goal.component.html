@@ -1,13 +1,14 @@
-<div class="card-wrapper">
-    <mat-card>
-        <mat-card-title>
-            {{title}}
-        </mat-card-title>
-        <mat-card-content>
-            {{text}}
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-button (click)="nextClicked.emit()">הבא</button>
-        </mat-card-actions>
-    </mat-card>
-</div>
+<mat-card>
+  <mat-card-title>
+    {{ title }}
+  </mat-card-title>
+  <mat-card-content>
+    {{ text }}
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="nextClicked.emit()">הבא</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar dir="rtl" [value]="timeout"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

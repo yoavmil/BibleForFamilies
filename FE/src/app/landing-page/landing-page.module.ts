@@ -6,21 +6,11 @@ import { GoalComponent } from './goal/goal.component';
 import { MatCardModule } from '@angular/material/card';
 import { GoalsComponent } from './goals/goals.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    IntroComponent,
-    GoalComponent,
-    GoalsComponent
-  ],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule
-  ],
-  exports: [
-    MainComponent
-  ]
+  declarations: [MainComponent, IntroComponent, GoalComponent, GoalsComponent],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatProgressBarModule],
+  exports: [MainComponent],
 })
-export class LandingPageModule { }
+export class LandingPageModule {}

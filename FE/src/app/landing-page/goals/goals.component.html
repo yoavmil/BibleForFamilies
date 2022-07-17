@@ -1,2 +1,9 @@
-<app-goal [title]="goals[goalIdx].title" [text]="goals[goalIdx].text" (nextClicked)="next()">
-</app-goal>
+<div class="goal-wrapper">
+  <app-goal
+    [title]="goals[goalIdx].title"
+    [text]="goals[goalIdx].text"
+    (nextClicked)="next()"
+    [timeout]="timeout"
+  >
+  </app-goal>
+</div>
