@@ -1,8 +1,5 @@
 .landing-page-wrapper {
-    height:100vh;
-    overflow-y: auto;
-}
-
-.landing-page-item {
-  height:80vh;
+  background-color: var(--base-background-color);
+  height: 100vh;
+  overflow-y: auto;
 }

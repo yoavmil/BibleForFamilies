@@ -1,0 +1,37 @@
+<div class="books-wrapper">
+  <mat-card>
+    <mat-card-header> סדר הספרים על פי הסדר הכרונולוגי </mat-card-header>
+    <mat-card-subtitle>why isn't the title larger?</mat-card-subtitle>
+    <mat-card-content>
+
+      <!-- the tree component is copied from Material examples -->
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" dir="rtl">
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          {{ node.name }}
+        </mat-tree-node>
+
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-tree-node
+          *matTreeNodeDef="let node; when: hasChild"
+          matTreeNodePadding
+        >
+          <button
+            mat-icon-button
+            matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name"
+          >
+            <mat-icon class="mat-icon-ltr-mirror">
+              {{
+                treeControl.isExpanded(node) ? "expand_more" : "chevron_left"
+              }}
+            </mat-icon>
+          </button>
+          {{ node.name }}
+        </mat-tree-node>
+      </mat-tree>
+    </mat-card-content>
+  </mat-card>
+</div>

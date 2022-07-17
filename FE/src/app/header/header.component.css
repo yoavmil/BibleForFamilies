@@ -1,7 +1,7 @@
 @import "../app.component.css";
 
 .header {
-    background: black;
+    background: var(--alternate-background-color);
     color: var(--header-text-color);
     padding: 0.5rem;
     display: flex;

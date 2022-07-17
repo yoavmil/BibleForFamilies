@@ -12,9 +12,10 @@ body {
 }
 
 :root {
-  --header-text-color: beige;
+  --header-text-color: white;
   --header-text-hover-color: lightcoral;
   --base-background-color: beige;
+  --alternate-background-color : #424242; /*Angular dark gray*/
 }
 
 .RTL {
