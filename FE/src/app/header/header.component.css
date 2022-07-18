@@ -1,12 +1,18 @@
 @import "../app.component.css";
 
-.header {
+mat-toolbar {
+    /* make sure the toolbar remains on top */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+
+    /* other properties */
     background: var(--alternate-background-color);
-    color: var(--header-text-color);
-    padding: 0.5rem;
-    display: flex;
+}
+
+mat-toolbar-row {
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 a {
