@@ -4,11 +4,8 @@ import {
   MatTreeFlatDataSource,
   MatTreeFlattener,
 } from '@angular/material/tree';
+import { BookNode, BookTreeService } from 'src/app/Services/book-tree.service';
 
-interface BookNode {
-  name: string;
-  children?: BookNode[];
-}
 interface FlatNode {
   expandable: boolean;
   name: string;
@@ -21,62 +18,8 @@ interface FlatNode {
   styleUrls: ['./books-tree.component.css'],
 })
 export class BooksTreeComponent {
-  bookData: BookNode[] = [
-    {
-      name: 'יהושע',
-    },
-    {
-      name: 'שופטים',
-      children: [
-        {
-          name: 'מגילת רות',
-        },
-      ],
-    },
-    {
-      name: 'שמואל א+ב',
-      children: [{ name: 'תהלים' }],
-    },
-    {
-      name: 'מלכים א+ב',
-
-      children: [
-        { name: 'יונה' },
-        { name: 'עמוס' },
-        { name: 'דברי הימים' },
-        { name: 'ישעיה' }
-      ],
-    },
-    { name: 'ירמיה' },
-    { name: 'יחזקאל' },
-    { name: 'דניאל' },
-    {
-      name: 'שיבת ציון',
-      children: [
-        {
-          name: 'עזרא',
-        },
-        {
-          name: 'מגילת אסתר',
-        },
-        {
-          name: 'חגי',
-        },
-        {
-          name: 'זכריה',
-        },
-        {
-          name: 'נחמיה',
-        },
-        {
-          name: 'מלאכי',
-        },
-      ],
-    },
-  ];
-
-  constructor() {
-    this.dataSource.data = this.bookData;
+  constructor(booktreeService : BookTreeService) {
+    this.dataSource.data = booktreeService.bookData;
   }
   private _transformer = (node: BookNode, level: number) => {
     return {
