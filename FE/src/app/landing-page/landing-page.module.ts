@@ -11,6 +11,7 @@ import { IntroComponent } from './intro/intro.component';
 import { GoalComponent } from './goal/goal.component';
 import { GoalsComponent } from './goals/goals.component';
 import { BooksTreeComponent } from './books-tree/books-tree.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BooksTreeComponent } from './books-tree/books-tree.component';
     GoalComponent,
     GoalsComponent,
     BooksTreeComponent,
+    HistoryComponent,
   ],
   imports: [
     CommonModule,

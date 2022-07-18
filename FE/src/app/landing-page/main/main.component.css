@@ -2,6 +2,7 @@
   background-color: var(--base-background-color);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .landing-page-wrapper :first-child {
