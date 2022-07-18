@@ -1,5 +1,13 @@
 .landing-page-wrapper {
   background-color: var(--base-background-color);
-  height: 100vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-page-wrapper :first-child {
+  padding-top: 2rem;
+}
+
+.landing-page-wrapper * {
+  padding-bottom: 2rem;
 }
