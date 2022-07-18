@@ -35,7 +35,12 @@ export class BookTreeService {
         { name: 'ישעיה' }
       ],
     },
-    { name: 'ירמיה' },
+    {
+      name: 'ירמיה',
+      children: [
+        { name: 'מגילת איכה' }
+      ]
+    },
     { name: 'יחזקאל' },
     { name: 'דניאל' },
     {
