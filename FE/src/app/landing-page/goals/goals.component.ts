@@ -42,10 +42,18 @@ export class GoalsComponent {
     },
   ];
 
+  public circleClicked(idx: number) {
+    this.setGoalIdx(idx);
+  }
+
+  private setGoalIdx(idx: number) {
+    this.goalIdx = idx;
+    this.resetTimer();
+  }
+
   public goalIdx: number = 0;
   public next() {
-    this.goalIdx = (this.goalIdx + 1) % this.goals.length;
-    this.resetTimer();
+    this.setGoalIdx((this.goalIdx + 1) % this.goals.length);
   }
 
   private timeoutMs: number = 5 * 1000;
@@ -56,14 +64,22 @@ export class GoalsComponent {
   }
   private resetTimer() {
     this.lastTick = Date.now();
+    this._timeout = 0;
   }
   startTimer() {
     this.resetTimer();
     setInterval(() => this.timerTick(), 100);
   }
   private timerTick() {
-    let dt = Date.now() - this.lastTick;
-    if (dt >= this.timeoutMs * 1.1) this.next();
-    this._timeout = dt / this.timeoutMs;
+    if (!this.pause) {
+      let dt = Date.now() - this.lastTick;
+      this._timeout += dt / this.timeoutMs;
+    }
+    this.lastTick = Date.now();
+    if (this._timeout > 1.1) this.next();
   }
+
+  private pause: boolean = false;
+  public mouseOver() { this.pause = true; }
+  public mouseOut() { this.pause = false; }
 }

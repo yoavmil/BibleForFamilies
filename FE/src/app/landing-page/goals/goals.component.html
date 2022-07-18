@@ -1,9 +1,10 @@
 <div class="goal-wrapper">
-  <app-goal
-    [title]="goals[goalIdx].title"
-    [text]="goals[goalIdx].text"
-    (nextClicked)="next()"
-    [timeout]="timeout"
-  >
+  <app-goal (mouseover)="mouseOver()" (mouseout)="mouseOut()" [title]=" goals[goalIdx].title"
+    [text]="goals[goalIdx].text" (nextClicked)="next()" [timeout]="timeout">
   </app-goal>
+  <div class="circles-wrapper">
+    <a *ngFor="let goal of goals; index as i;" (click)="circleClicked(i)" class="circle">
+      {{i == goalIdx ? "●" : "○"}}
+    </a>
+  </div>
 </div>
