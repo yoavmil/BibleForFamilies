@@ -39,7 +39,13 @@ export class BooksTreeComponent {
     },
     {
       name: 'מלכים א+ב',
-      children: [{ name: 'ישעיה' }],
+
+      children: [
+        { name: 'יונה' },
+        { name: 'עמוס' },
+        { name: 'דברי הימים' },
+        { name: 'ישעיה' }
+      ],
     },
     { name: 'ירמיה' },
     { name: 'יחזקאל' },
