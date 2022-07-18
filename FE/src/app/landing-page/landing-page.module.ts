@@ -11,7 +11,8 @@ import { IntroComponent } from './intro/intro.component';
 import { GoalComponent } from './goal/goal.component';
 import { GoalsComponent } from './goals/goals.component';
 import { BooksTreeComponent } from './books-tree/books-tree.component';
-import { HistoryComponent } from './history/history.component';
+import { AboutUsComponent } from './history/about-us.component';
+import { BuildingBlocksModule } from '../building-blocks/building-blocks.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HistoryComponent } from './history/history.component';
     GoalComponent,
     GoalsComponent,
     BooksTreeComponent,
-    HistoryComponent,
+    AboutUsComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +30,7 @@ import { HistoryComponent } from './history/history.component';
     MatProgressBarModule,
     MatTreeModule,
     MatIconModule,
+    BuildingBlocksModule
   ],
   exports: [MainComponent],
 })
