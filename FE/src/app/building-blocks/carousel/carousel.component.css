@@ -1,0 +1,15 @@
+.circles-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.circle {
+    padding-left: 0.5rem;
+    cursor: pointer;
+    font-size: large;
+}
+
+mat-card-content {
+    text-align: justify;
+}

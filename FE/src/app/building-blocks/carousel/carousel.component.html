@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-title>{{items[currIdx].title}}</mat-card-title>
+    <mat-card-content [style.height]="contentHeight">{{items[currIdx].content}}</mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button (click)="nextItem()">הבא</button>
+    </mat-card-actions>
+</mat-card>
+<div class="circles-wrapper">
+    <a *ngFor="let item of items; index as i;" (click)="circleClicked(i)" class="circle">
+        {{i == currIdx ? "●" : "○"}}
+    </a>
+</div>
