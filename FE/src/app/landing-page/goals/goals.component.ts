@@ -17,7 +17,7 @@ export class GoalsComponent {
 
   public goals: GoalText[] = [
     {
-      title: 'הנגשת התנך ללימוד משפחתי',
+      title: 'מונגש ללימוד משפחתי',
       text: 'נסביר איך ללמד את התנך לילדים. נשתף בניננו את הדילמות והחוויות.',
     },
     {
