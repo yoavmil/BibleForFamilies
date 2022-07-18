@@ -57,13 +57,16 @@ export class BooksTreeComponent {
           name: 'עזרא',
         },
         {
-          name: 'נחמיה',
+          name: 'מגילת אסתר',
         },
         {
           name: 'חגי',
         },
         {
           name: 'זכריה',
+        },
+        {
+          name: 'נחמיה',
         },
         {
           name: 'מלאכי',
