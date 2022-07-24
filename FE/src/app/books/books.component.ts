@@ -8,9 +8,11 @@ import { BookTreeService } from '../Services/book-tree.service';
 })
 export class BooksComponent {
 
-  constructor(bookTree : BookTreeService) {
-    this.bookNames = Array.from(bookTree.bookData, (b) => {return b.name;});
+  constructor(bookTree: BookTreeService) {
+    this.bookNames = Array.from(bookTree.bookData, (b) => {
+      return b.name.replace("א+ב", "");
+    });
   }
 
-  public bookNames : string[];
+  public bookNames: string[];
 }
