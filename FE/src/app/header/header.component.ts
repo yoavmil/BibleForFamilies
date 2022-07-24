@@ -1,20 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from '../Services/user.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { VerticalDividerComponent } from '../building-blocks/vertical-divider/vertical-divider.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(
     private userService: UserService,
     private deviceService: DeviceDetectorService) { }
 
-  ngOnInit(): void {
-  }
 
   public get hasUser(): boolean { return this.userService.hasUser; }
   public get isMobile(): boolean {
