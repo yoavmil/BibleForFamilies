@@ -1,17 +1,4 @@
-<span> <!-- TODO take from book service and use *ngFor-->
-    <a>יהושע</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>שופטים</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>שמואל</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>מלאכים</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>ירמיה</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>יחזקאל</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>דניאל</a>
-    <app-vertical-divider></app-vertical-divider>
-    <a>שיבת ציון</a>
+<span *ngFor="let name of bookNames; let last = last">
+  <a>{{ name }}</a>
+  <app-vertical-divider *ngIf="!last"></app-vertical-divider>
 </span>
