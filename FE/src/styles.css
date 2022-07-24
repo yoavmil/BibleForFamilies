@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--base-background-color);
 }
 
 :root {
@@ -16,9 +17,4 @@ body {
 
 .RTL {
   direction: rtl;
-}
-
-mat-card {
-  max-width: var(--nominal-card-width);
-  min-width: var(--mobile-min-width) -var(--card-padding);
 }
