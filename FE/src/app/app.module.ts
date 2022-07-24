@@ -10,12 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import { BooksSpanComponent } from './header/books-span/books-span.component';
 import { BuildingBlocksModule } from './building-blocks/building-blocks.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
-import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './landing-page/main/main.component';
-
-const appRoutes: Routes = [
-  { path: "", component: MainComponent }
-];
 
 @NgModule({
   declarations: [
@@ -29,8 +23,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatToolbarModule,
     BuildingBlocksModule,
-    LandingPageModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true })
+    LandingPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

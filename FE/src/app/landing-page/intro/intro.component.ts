@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import texts from './text.json';
 
 @Component({
@@ -6,12 +6,8 @@ import texts from './text.json';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css'],
 })
-export class IntroComponent implements OnInit {
-  constructor() {
-    console.log(this.header);
-    console.dir(this.paragraphs);
-  }
+export class IntroComponent {
+  constructor() { }
   public header = texts.header;
   public paragraphs = texts.paragraphs;
-  ngOnInit(): void {}
 }

@@ -7,11 +7,9 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
   constructor(
     private userService: UserService,
     private deviceService: DeviceDetectorService) { }
-
 
   public get hasUser(): boolean { return this.userService.hasUser; }
   public get isMobile(): boolean {
