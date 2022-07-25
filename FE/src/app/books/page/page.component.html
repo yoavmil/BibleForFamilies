@@ -1,0 +1,20 @@
+<div class="horizontal-wrapper" *ngIf="!isMobile">
+    <div class="index" *ngFor="let item of content.chapters">
+        <div>{{item.title}}</div>
+    </div>
+    <div class="vertical-wrapper">
+        <div class="title">
+            {{chapter.title}}
+        </div>
+        <div class="content" *ngFor="let card of chapter.cards">
+            <mat-card>
+                <mat-card-title>{{card.title}}</mat-card-title>
+                <mat-card-content>
+                    <p *ngFor="let p of card.paragraphs">
+                        {{p}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

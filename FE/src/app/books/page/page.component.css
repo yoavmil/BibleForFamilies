@@ -1,0 +1,35 @@
+.horizontal-wrapper {
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+}
+
+.index {
+    height: 100vh;
+    width: 25%;
+}
+
+.index>div {
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.vertical-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 1rem 0 0;
+    width: 100vh;
+}
+
+.vertical-wrapper>* {
+    padding-bottom: 2rem;
+}
+
+.title {
+    font-size: x-large;
+}
+
+mat-card {
+    min-width: var(--nominal-card-width);
+}

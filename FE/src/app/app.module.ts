@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { BooksSpanComponent } from './header/books-span/books-span.component';
 import { BuildingBlocksModule } from './building-blocks/building-blocks.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
+import { BooksModule } from './books/books.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LandingPageModule } from './landing-page/landing-page.module';
     BrowserAnimationsModule,
     MatToolbarModule,
     BuildingBlocksModule,
-    LandingPageModule
+    LandingPageModule,
+    BooksModule
   ],
   providers: [],
   bootstrap: [AppComponent]
