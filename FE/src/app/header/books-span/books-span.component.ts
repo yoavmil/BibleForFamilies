@@ -9,10 +9,17 @@ import { BookTreeService } from '../../Services/book-tree.service';
 export class BooksSpanComponent {
 
   constructor(bookTree: BookTreeService) {
-    this.bookNames = Array.from(bookTree.bookData, (b) => {
-      return b.name.replace("א+ב", "");
-    });
+    for (let book of bookTree.bookData) {
+      const name = book.name.replace("א+ב", "");
+      this.bookNames.push(name);
+      if (book.link)
+        this.links.set(name, book.link);
+    }
   }
 
-  public bookNames: string[];
+  public bookNames: string[] = [];
+  private links: Map<string, string> = new Map();
+  public link(name: string): string | undefined {
+    return this.links.get(name);
+  }
 }

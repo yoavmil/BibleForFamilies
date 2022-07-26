@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 export interface BookNode {
   name: string;
+  link?: string;
   children?: BookNode[];
 }
 
@@ -12,6 +13,7 @@ export class BookTreeService {
   public bookData: BookNode[] = [
     {
       name: 'יהושע',
+      link: 'Yehoshua'
     },
     {
       name: 'שופטים',
