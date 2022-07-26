@@ -1,4 +1,4 @@
 <span *ngFor="let name of bookNames; let last = last">
-  <a [attr.href]="link(name) ? link(name) : null">{{ name }}</a>
+  <a [routerLink]="link(name) ? link(name) : null">{{ name }}</a>
   <app-vertical-divider *ngIf="!last"></app-vertical-divider>
 </span>

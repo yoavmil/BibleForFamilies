@@ -10,5 +10,4 @@ export interface Chapter {
 
 export interface BookData {
     chapters: Chapter[];
-    active: number;
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BookData, Chapter } from '../book-data';
 
@@ -9,13 +10,27 @@ import { BookData, Chapter } from '../book-data';
 })
 export class PageComponent {
 
-  constructor(private deviceService: DeviceDetectorService) { }
+  constructor(
+    private deviceService: DeviceDetectorService,
+    private activeRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   @Input() content: BookData;
 
-  public get chapter(): Chapter { return this.content.chapters[this.content.active]; }
+  public get chapter(): Chapter {
+    let idxString = this.activeRoute.snapshot.paramMap.get("id");
+    if (!idxString) idxString = "0";
+    let idx = parseInt(idxString);
+    return this.content.chapters[idx];
+  }
 
   public get isMobile(): boolean {
     return this.deviceService.isMobile();
+  }
+
+  public indexItemClicked(i: number) {
+    const base = this.activeRoute.snapshot.url[0].path;
+    this.router.navigate([base, `${i}`]);
   }
 }

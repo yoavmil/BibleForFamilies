@@ -5,7 +5,8 @@ import { MainComponent } from './landing-page/main/main.component';
 
 const appRoutes: Routes = [
   { path: "", component: MainComponent },
-  { path: "Yehoshua", component: YehoshuaComponent },
+  { path: "Yehoshua/:id", component: YehoshuaComponent },
+  { path: "Yehoshua", redirectTo: "Yehoshua/0" }
 ];
 
 @NgModule({

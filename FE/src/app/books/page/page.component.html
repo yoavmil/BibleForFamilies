@@ -1,6 +1,8 @@
 <div class="horizontal-wrapper" *ngIf="!isMobile">
-    <div class="index" *ngFor="let item of content.chapters">
-        <div>{{item.title}}</div>
+    <div class="index-wrapper">
+        <div class="index-element" *ngFor="let item of content.chapters; let i = index" (click)="indexItemClicked(i)">
+            {{item.title}}
+        </div>
     </div>
     <div class="vertical-wrapper">
         <div class="title">
