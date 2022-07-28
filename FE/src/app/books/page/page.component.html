@@ -1,22 +1,26 @@
 <div class="horizontal-wrapper" *ngIf="!isMobile">
-    <div class="index-wrapper">
-        <div class="index-element" *ngFor="let item of content.chapters; let i = index" (click)="indexItemClicked(i)">
-            {{item.title}}
-        </div>
+  <div class="index-wrapper">
+    <div
+      class="index-element"
+      *ngFor="let item of content.chapters; let i = index"
+      (click)="indexItemClicked(i)"
+    >
+      {{ item.title }}
     </div>
-    <div class="vertical-wrapper">
-        <div class="title">
-            {{chapter.title}}
-        </div>
-        <div class="content" *ngFor="let card of chapter.cards">
-            <mat-card>
-                <mat-card-title>{{card.title}}</mat-card-title>
-                <mat-card-content>
-                    <p *ngFor="let p of card.paragraphs">
-                        {{p}}
-                    </p>
-                </mat-card-content>
-            </mat-card>
-        </div>
+  </div>
+  <div class="vertical-wrapper">
+    <div class="title">
+      {{ chapter.title }}
     </div>
+    <div class="content" *ngFor="let card of chapter.cards">
+      <mat-card>
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-content
+          *ngFor="let p of card.paragraphs"
+          [innerHTML]="process(p)"
+        >
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
