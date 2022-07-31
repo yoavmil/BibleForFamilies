@@ -21,6 +21,7 @@
             [innerHTML]="process(p)"
           >
           </mat-card-content>
+          <div *ngIf="!!card.iframe" [innerHTML]="sanitize(card.iframe)"></div>
         </mat-card>
       </div>
     </div>

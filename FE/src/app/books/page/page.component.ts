@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BookData, Chapter } from '../book-data';
 import { Marked } from '@ts-stack/markdown';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-page',
@@ -14,7 +15,8 @@ export class PageComponent {
   constructor(
     private deviceService: DeviceDetectorService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {}
 
   @Input() content: BookData;
@@ -37,5 +39,9 @@ export class PageComponent {
 
   public process(md: string): string {
     return Marked.parse(md);
+  }
+
+  public sanitize(htmlText: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlText);
   }
 }
