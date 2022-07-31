@@ -12,15 +12,17 @@
     <div class="title">
       {{ chapter.title }}
     </div>
-    <div class="content" *ngFor="let card of chapter.cards">
-      <mat-card>
-        <mat-card-title>{{ card.title }}</mat-card-title>
-        <mat-card-content
-          *ngFor="let p of card.paragraphs"
-          [innerHTML]="process(p)"
-        >
-        </mat-card-content>
-      </mat-card>
+    <div class="cards-wrapper">
+      <div class="content" *ngFor="let card of chapter.cards">
+        <mat-card>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+          <mat-card-content
+            *ngFor="let p of card.paragraphs"
+            [innerHTML]="process(p)"
+          >
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>

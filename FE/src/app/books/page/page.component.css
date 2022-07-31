@@ -1,11 +1,9 @@
 .horizontal-wrapper {
   direction: rtl;
-  display: flex;
-  flex-direction: row;
 }
 
 .index-wrapper {
-  height: 100vh;
+  position:absolute;
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -21,8 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 1rem 0 0;
-  width: 100vh;
+  margin: 1rem 0 0 0;
 }
 
 .vertical-wrapper>* {
@@ -31,6 +28,17 @@
 
 .title {
   font-size: x-large;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: var(--mobile-min-width);
+}
+
+.cards-wrapper mat-card {
+  margin-bottom: 2rem;
 }
 
 mat-card {
@@ -43,4 +51,8 @@ mat-card * a {
 
 mat-card * a:hover {
   color: var(--header-text-hover-color)
+}
+
+mat-card-content {
+  text-align: justify;
 }
