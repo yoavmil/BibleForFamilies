@@ -1,6 +1,5 @@
-export class CommentDTO {
-    id: number;
-    text: string;
-    author: string;
-    date: Date;
+export class CommentDto {
+  content: string;
+  author: string;
+  date: Date;
 }

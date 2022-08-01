@@ -1,55 +1,39 @@
-import { HttpException, Injectable } from '@nestjs/common';
-import { CommentDTO } from './comment.DTO';
-import { commentsMock } from './comments.mock';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { CommentDto as CommentDto } from './comment.Dto';
+import CommentDocument, { Comment, CommentSchema } from './comment.schema';
 
 @Injectable()
 export class CommentService {
-    private comments = commentsMock;
+  constructor(
+    @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
+  ) {}
 
-    public getComments(): Promise<CommentDTO[]> {
-        return new Promise((resolve) => {
-            return resolve(this.comments);
-        });
-    }
+  public async getComments(): Promise<Comment[]> {
+    return this.commentModel.find().exec();
+  }
 
-    public getComment(id: number): Promise<CommentDTO> {
-        return new Promise((resolve) => {
-            resolve(this.comment(id));
-        });
-    }
+  public async getComment(id: string): Promise<Comment> {
+    return this.commentModel.findById(id).exec();
+  }
 
-    public postComment(comment: CommentDTO): Promise<CommentDTO[]> {
-        return new Promise((resolve) => {
-            this.comments.push(comment);
-            return resolve(this.comments);
-        });
-    }
+  public async postComment(comment: CommentDto): Promise<Comment> {
+    const createdComment = new this.commentModel(comment);
+    return createdComment.save();
+  }
 
-    public deleteComment(id: number): Promise<CommentDTO[]> {
-        return new Promise((resolve) => {
-            let idx = this.commentIdx(id);
-            this.comments.splice(idx);
-            return resolve(this.comments);
-        });
-    }
+  public async deleteComment(id: string): Promise<Comment> {
+    return this.commentModel.findByIdAndDelete(id).exec();
+  }
 
-    public putComment(id: number, key: string, val: string): Promise<CommentDTO> {
-        return new Promise((resolve) => {
-            let comment = this.comment(id);
-            comment[key] = val;
-            resolve(comment);
-        });
-    }
-
-    private comment(id: number): CommentDTO {
-        let comment = this.comments.find((comment) => { return comment.id == id; });
-        if (!comment) throw new HttpException("Not fount", 404);
-        return comment;
-    }
-
-    private commentIdx(id: number): number {
-        let idx = this.comments.findIndex((comment) => { comment.id == id; })
-        if (idx < 0) throw new HttpException("Not fount", 404);
-        return idx;
-    }
+  public async putComment(
+    id: string,
+    key: string,
+    val: string,
+  ): Promise<Comment> {
+    return this.commentModel.findByIdAndUpdate(id, {
+      [key]: val,
+    });
+  }
 }
