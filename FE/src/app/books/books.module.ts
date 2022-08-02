@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { GeneralComponent } from './general/general.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { CommentsComponent } from './comments/comments.component';
   imports: [
     CommonModule,
     MatCardModule,
+    MatExpansionModule,
+    MatButtonModule,
     HttpClientModule,
   ],
 })
