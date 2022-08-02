@@ -1,10 +1,6 @@
 <div class="horizontal-wrapper" *ngIf="!isMobile">
   <div class="index-wrapper">
-    <div
-      class="index-element"
-      *ngFor="let item of content.chapters; let i = index"
-      (click)="indexItemClicked(i)"
-    >
+    <div class="index-element" *ngFor="let item of content.chapters; let i = index" (click)="indexItemClicked(i)">
       {{ item.title }}
     </div>
   </div>
@@ -12,18 +8,12 @@
     <div class="title">
       {{ chapter.title }}
     </div>
-    <div class="cards-wrapper">
-      <div class="content" *ngFor="let card of chapter.cards">
-        <mat-card>
-          <mat-card-title>{{ card.title }}</mat-card-title>
-          <mat-card-content
-            *ngFor="let p of card.paragraphs"
-            [innerHTML]="process(p)"
-          >
-          </mat-card-content>
-          <div *ngIf="!!card.iframe" [innerHTML]="sanitize(card.iframe)"></div>
-        </mat-card>
-      </div>
-    </div>
+    <mat-card *ngFor="let card of chapter.cards">
+      <mat-card-title>{{ card.title }}</mat-card-title>
+      <mat-card-content *ngFor="let p of card.paragraphs" [innerHTML]="process(p)">
+      </mat-card-content>
+      <div *ngIf="!!card.iframe" [innerHTML]="sanitize(card.iframe)"></div>
+    </mat-card>
   </div>
+  <app-comments></app-comments>
 </div>
