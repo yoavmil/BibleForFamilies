@@ -5,6 +5,7 @@ export interface Card {
 }
 
 export interface Chapter {
+  id: number;
   title: string;
   cards: Card[];
 }
