@@ -8,7 +8,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { CommentDto } from './comment.Dto';
+import { CommentDto } from '../../../DTOs/comment.DTO';
 import { CommentService } from './comment.service';
 
 @Controller('comment')

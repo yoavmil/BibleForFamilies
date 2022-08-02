@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CommentDto as CommentDto } from './comment.Dto';
+import { CommentDto } from '../../../DTOs/comment.DTO';
 import CommentDocument, { Comment, CommentSchema } from './comment.schema';
 
 @Injectable()
 export class CommentService {
   constructor(
     @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
-  ) {}
+  ) { }
 
   public async getComments(): Promise<Comment[]> {
     return this.commentModel.find().exec();
