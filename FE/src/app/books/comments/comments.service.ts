@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CommentDto } from '../../../../../DTOs/comment.DTO'
@@ -18,6 +18,9 @@ export class CommentsService {
       next: (comments) => {
         this.comments = comments;
         this.commentsUpdated.next(this.comments);
+      },
+      error: (err: HttpErrorResponse) => {
+        console.error(`got error at ${this.commentsURL}: ${err.message}`);
       }
     });
   }

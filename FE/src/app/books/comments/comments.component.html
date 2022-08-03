@@ -1,13 +1,44 @@
-<mat-accordion color="warn" multi="true" *ngIf="comments.length > 0">
-    <mat-expansion-panel *ngFor="let comment of comments">
-        <mat-expansion-panel-header>
-            {{ comment.title }}
-        </mat-expansion-panel-header>
-        <p>{{ comment.content }}</p>
-        <mat-action-row>
-            <button mat-button color="">EDIT</button>
-            <button mat-button color="warn">DELETE</button>
-        </mat-action-row>
-    </mat-expansion-panel>
+<h2>{{labels.comments}}</h2>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      {{labels.addAComment}}
+    </mat-expansion-panel-header>
+
+    <div>
+      <mat-form-field>
+        <mat-label>{{labels.name}}</mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+    </div>
+    <div class="fill-row">
+      <mat-form-field>
+        <mat-label>{{labels.title}}</mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+    </div>
+    <div class="fill-row">
+      <mat-form-field>
+        <textarea matInput rows="4"></textarea>
+      </mat-form-field>
+    </div>
+
+    <mat-card-actions align="end">
+      <button mat-button>{{labels.send}}</button>
+    </mat-card-actions>
+  </mat-expansion-panel>
 </mat-accordion>
-<p *ngIf="comments.length <= 0">אין הערות בנתיים. במקום שאין אנשים השתדל להיות איש!</p>
+
+<mat-accordion multi="true" *ngIf="comments.length > 0">
+  <mat-expansion-panel *ngFor="let comment of comments">
+    <mat-expansion-panel-header>
+      {{ comment.title }}
+    </mat-expansion-panel-header>
+    <p>{{ comment.content }}</p>
+    <mat-action-row>
+      <button mat-button color="">EDIT</button>
+      <button mat-button color="warn">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf="comments.length <= 0">{{labels.noCommentsYet}}</p>

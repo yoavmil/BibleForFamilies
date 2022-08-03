@@ -20,11 +20,12 @@
   flex-direction: column;
   align-items: center;
   margin: 1rem 0 0 0;
+  width: var(--mobile-min-width);
+  margin: auto;
 }
 
 .vertical-wrapper>* {
   padding-bottom: 2rem;
-  width: var(--mobile-min-width);
 }
 
 .title {

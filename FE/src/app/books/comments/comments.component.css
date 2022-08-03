@@ -1,0 +1,7 @@
+mat-form-field {
+  text-align: right;
+}
+
+.fill-row , .fill-row>*{
+  width: 100%;
+}
