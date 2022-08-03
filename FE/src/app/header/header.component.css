@@ -1,5 +1,3 @@
-@import "../app.component.css";
-
 mat-toolbar {
     /* make sure the toolbar remains on top */
     position: sticky;
