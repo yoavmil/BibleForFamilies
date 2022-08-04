@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatExpansionPanel } from '@angular/material/expansion';
 import { Subscription } from 'rxjs';
 import { CommentDto } from '../../../../../DTOs/comment.DTO';
 import { CommentsService } from './comments.service';
@@ -11,8 +12,16 @@ import labels from './labels.json';
 })
 export class CommentsComponent implements OnInit {
   comments: CommentDto[] = [];
+  public newComment: CommentDto = new CommentDto;
   private commentsSub: Subscription;
   public labels = labels;
+
+  public sendCommentClicked() {
+    console.log(`${this.newComment.authorDisplayName}: ${this.newComment.title} \n ${this.newComment.content}`);
+    this.newCommentExpansionPanel.close();
+    this.commentsService.addComment(this.newComment);
+    this.newComment = new CommentDto();
+  }
 
   constructor(public commentsService: CommentsService) { }
 
@@ -27,4 +36,7 @@ export class CommentsComponent implements OnInit {
   ngOnDestroy() {
     this.commentsSub.unsubscribe();
   }
+
+  @ViewChild('new_form_expansion_panel') newCommentExpansionPanel: MatExpansionPanel;
+
 }

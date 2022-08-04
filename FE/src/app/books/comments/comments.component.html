@@ -1,34 +1,31 @@
 <h2>{{labels.comments}}</h2>
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      {{labels.addAComment}}
-    </mat-expansion-panel-header>
+<mat-expansion-panel #new_form_expansion_panel hideToggle>
+  <mat-expansion-panel-header>
+    {{labels.addAComment}}
+  </mat-expansion-panel-header>
+  <div>
+    <mat-form-field color="accent">
+      <mat-label>{{labels.name}}</mat-label>
+      <input matInput [(ngModel)]="newComment.authorDisplayName">
+    </mat-form-field>
+  </div>
+  <div class="fill-row">
+    <mat-form-field color="accent">
+      <mat-label>{{labels.title}}</mat-label>
+      <input matInput [(ngModel)]="newComment.title">
+    </mat-form-field>
+  </div>
+  <div class="fill-row">
+    <mat-form-field color="accent">
+      <textarea matInput rows="4" [(ngModel)]="newComment.content"></textarea>
+    </mat-form-field>
+  </div>
 
-    <div>
-      <mat-form-field>
-        <mat-label>{{labels.name}}</mat-label>
-        <input matInput type="text">
-      </mat-form-field>
-    </div>
-    <div class="fill-row">
-      <mat-form-field>
-        <mat-label>{{labels.title}}</mat-label>
-        <input matInput type="text">
-      </mat-form-field>
-    </div>
-    <div class="fill-row">
-      <mat-form-field>
-        <textarea matInput rows="4"></textarea>
-      </mat-form-field>
-    </div>
-
-    <mat-card-actions align="end">
-      <button mat-button>{{labels.send}}</button>
-    </mat-card-actions>
-  </mat-expansion-panel>
-</mat-accordion>
-
+  <mat-action-row align="end">
+    <button mat-button (click)="sendCommentClicked()">{{labels.send}}</button>
+  </mat-action-row>
+</mat-expansion-panel>
+<hr /> <!--  this is actually needed to separate the new comment comment from the old comments -->
 <mat-accordion multi="true" *ngIf="comments.length > 0">
   <mat-expansion-panel *ngFor="let comment of comments">
     <mat-expansion-panel-header>
