@@ -2,6 +2,18 @@ mat-form-field {
   text-align: right;
 }
 
-.fill-row , .fill-row>*{
+.fill-row,
+.fill-row>* {
   width: 100%;
+}
+
+.details-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-style: italic;
+}
+
+.details-row>span:not(:first-child) {
+  margin-right: 1rem;
 }

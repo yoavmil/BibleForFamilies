@@ -49,8 +49,7 @@ export class CommentsComponent implements OnInit {
   }
 
   public hebrewDate(comment: CommentDto) {
-    let tmp: string = new Date().toISOString();
-    let date: Date = new Date(tmp);
+    let date: Date = new Date(comment.date);
     let hDate: HDate = new HDate(date);
     let hNow = new HDate(new Date());
     let sameYear = hDate.getFullYear() == hNow.getFullYear();
@@ -62,6 +61,10 @@ export class CommentsComponent implements OnInit {
   }
 
   public date(comment: CommentDto) {
-    return "TODO this" + comment.date;
+    const date: Date = new Date(comment.date);
+    let pad = function (n: number) {
+      return n.toString().padStart(2, '0');
+    }
+    return `${pad(date.getDate())}/${pad(date.getMonth())}/${pad(date.getFullYear() % 1000)}`
   }
 }
