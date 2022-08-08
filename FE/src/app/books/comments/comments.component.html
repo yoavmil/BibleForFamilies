@@ -33,6 +33,9 @@
     </mat-expansion-panel-header>
     <p [innerHTML]="process(comment.content)"></p>
     <mat-action-row>
+      <span>{{comment.authorDisplayName}}</span>
+      <span>{{hebrewDate(comment)}}</span>
+      <!-- <span>{{date(comment)}}</span> -->
       <button mat-button color="warn" (click)="deleteComment(comment)">{{labels.delete}}</button>
     </mat-action-row>
   </mat-expansion-panel>

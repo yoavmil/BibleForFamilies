@@ -5,6 +5,7 @@ import { CommentDto } from './comment.dto';
 import { CommentsService } from './comments.service';
 import labels from './labels.json';
 import { Marked } from '@ts-stack/markdown';
+import { gematriya, Locale, HDate } from '@hebcal/core';
 
 @Component({
   selector: 'app-comments',
@@ -16,10 +17,7 @@ export class CommentsComponent implements OnInit {
   public newComment: CommentDto = new CommentDto;
   private commentsSub: Subscription;
   public labels = labels;
-
-  public process(md: string): string {
-    return Marked.parse(md);
-  }
+  @ViewChild('new_form_expansion_panel') newCommentExpansionPanel: MatExpansionPanel;
 
   public sendComment() {
     console.log(`${this.newComment.authorDisplayName}: ${this.newComment.title} \n ${this.newComment.content}`);
@@ -46,6 +44,24 @@ export class CommentsComponent implements OnInit {
     this.commentsSub.unsubscribe();
   }
 
-  @ViewChild('new_form_expansion_panel') newCommentExpansionPanel: MatExpansionPanel;
+  public process(md: string): string {
+    return Marked.parse(md);
+  }
 
+  public hebrewDate(comment: CommentDto) {
+    let tmp: string = new Date().toISOString();
+    let date: Date = new Date(tmp);
+    let hDate: HDate = new HDate(date);
+    let hNow = new HDate(new Date());
+    let sameYear = hDate.getFullYear() == hNow.getFullYear();
+    let day = gematriya(hDate.getDate());
+    let month = Locale.gettext(hDate.getMonthName(), `he-x-NoNikud`);
+    let str: string = `${day} ${month}`;
+    if (!sameYear) str += ", " + gematriya(hDate.getFullYear());
+    return str;
+  }
+
+  public date(comment: CommentDto) {
+    return "TODO this" + comment.date;
+  }
 }
