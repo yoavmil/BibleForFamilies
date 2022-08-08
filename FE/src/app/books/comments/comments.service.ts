@@ -27,7 +27,7 @@ export class CommentsService {
   }
 
   public addComment(comment: CommentDto) {
-    if (!comment.date) comment.date = new Date().toISOString();
+    if (!comment.date) comment.date = new Date().getTime();
     this.http.post(this.commentsURL, comment).subscribe({
       next: (comment) => {
         this.comments.push(comment as CommentDto);

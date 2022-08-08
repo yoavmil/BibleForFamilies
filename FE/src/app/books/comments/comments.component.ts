@@ -20,7 +20,6 @@ export class CommentsComponent implements OnInit {
   @ViewChild('new_form_expansion_panel') newCommentExpansionPanel: MatExpansionPanel;
 
   public sendComment() {
-    console.log(`${this.newComment.authorDisplayName}: ${this.newComment.title} \n ${this.newComment.content}`);
     this.newCommentExpansionPanel.close();
     this.commentsService.addComment(this.newComment);
     this.newComment = new CommentDto();
@@ -49,6 +48,7 @@ export class CommentsComponent implements OnInit {
   }
 
   public hebrewDate(comment: CommentDto) {
+    if (!comment.date) return "";
     let date: Date = new Date(comment.date);
     let hDate: HDate = new HDate(date);
     let hNow = new HDate(new Date());
@@ -61,10 +61,11 @@ export class CommentsComponent implements OnInit {
   }
 
   public date(comment: CommentDto) {
+    if (!comment.date) return "";
     const date: Date = new Date(comment.date);
     let pad = function (n: number) {
       return n.toString().padStart(2, '0');
-    }
-    return `${pad(date.getDate())}/${pad(date.getMonth())}/${pad(date.getFullYear() % 1000)}`
+    };
+    return `${pad(date.getDate())}/${pad(date.getMonth())}/${pad(date.getFullYear() % 1000)}`;
   }
 }

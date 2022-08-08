@@ -4,5 +4,5 @@ export class CommentDto {
 	title: string;
 	content: string;
 	authorDisplayName: string;
-	date: string;
+	date: number;
 };

@@ -22,7 +22,7 @@ const dtos = [
             { name: "title", },
             { name: "content", },
             { name: "authorDisplayName" },
-            { name: "date", type: "string" }
+            { name: "date", type: "number" }
         ]
     }
 ];
