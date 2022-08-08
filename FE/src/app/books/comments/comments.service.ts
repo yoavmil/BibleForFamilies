@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CommentDto } from './comment.dto';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,4 +36,9 @@ export class CommentsService {
     });
   }
 
+  deleteComment(comment: CommentDto) {
+    this.http.delete(`${this.commentsURL}/${comment._id}`).subscribe({
+      next: (reply) => { this.getComments("") }
+    });
+  }
 }

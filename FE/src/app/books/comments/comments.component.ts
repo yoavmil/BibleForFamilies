@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CommentDto } from './comment.dto';
 import { CommentsService } from './comments.service';
 import labels from './labels.json';
+import { Marked } from '@ts-stack/markdown';
 
 @Component({
   selector: 'app-comments',
@@ -16,11 +17,19 @@ export class CommentsComponent implements OnInit {
   private commentsSub: Subscription;
   public labels = labels;
 
-  public sendCommentClicked() {
+  public process(md: string): string {
+    return Marked.parse(md);
+  }
+
+  public sendComment() {
     console.log(`${this.newComment.authorDisplayName}: ${this.newComment.title} \n ${this.newComment.content}`);
     this.newCommentExpansionPanel.close();
     this.commentsService.addComment(this.newComment);
     this.newComment = new CommentDto();
+  }
+
+  public deleteComment(comment: CommentDto) {
+    this.commentsService.deleteComment(comment);
   }
 
   constructor(public commentsService: CommentsService) { }

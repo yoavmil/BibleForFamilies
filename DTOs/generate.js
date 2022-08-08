@@ -19,14 +19,10 @@ const dtos = [
         beFolder: "be/src/comment",
         feFolder: "FE/src/app/books/comments",
         fields: [
-            { name: "id", },
             { name: "title", },
             { name: "content", },
             { name: "authorDisplayName" },
             { name: "date", type: "string" }
-        ],
-        map: [
-            { key: "_id", val: "id" }
         ]
     }
 ];
@@ -37,6 +33,7 @@ function create() {
         console.log(`creating DTO and schema for ${dto.name}\n`);
         var ts = warning;
         ts += `export class ${dto.name}Dto {\n`;
+        ts += '\t_id: number;\n'; // the mongo db _id value
         dto.fields.forEach((f) => {
             if (!f.type) f.type = "string";
             ts += `\t${f.name}: ${f.type};\n`;

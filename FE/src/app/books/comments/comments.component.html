@@ -22,7 +22,7 @@
   </div>
 
   <mat-action-row align="end">
-    <button mat-button (click)="sendCommentClicked()">{{labels.send}}</button>
+    <button mat-button (click)="sendComment()">{{labels.send}}</button>
   </mat-action-row>
 </mat-expansion-panel>
 <hr /> <!--  this is actually needed to separate the new comment comment from the old comments -->
@@ -31,10 +31,9 @@
     <mat-expansion-panel-header>
       {{ comment.title }}
     </mat-expansion-panel-header>
-    <p>{{ comment.content }}</p>
+    <p [innerHTML]="process(comment.content)"></p>
     <mat-action-row>
-      <button mat-button color="">EDIT</button>
-      <button mat-button color="warn">DELETE</button>
+      <button mat-button color="warn" (click)="deleteComment(comment)">{{labels.delete}}</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
