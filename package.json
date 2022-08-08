@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "npm --prefix ./FE/ run start"
+    "serve": "npm --prefix ./FE/ run start",
+    "gen_dto": "node ./dtos/generate.js"
   },
   "repository": {
     "type": "git",

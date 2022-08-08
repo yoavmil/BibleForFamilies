@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { CommentDto } from '../../../../../DTOs/comment.DTO'
+import { CommentDto } from './comment.dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +26,7 @@ export class CommentsService {
   }
 
   public addComment(comment: CommentDto) {
-    if (!comment.date) comment.date = new Date();
+    if (!comment.date) comment.date = new Date().toString();
     this.http.post(this.commentsURL, comment).subscribe({
       next: (comment) => {
         this.comments.push(comment as CommentDto);

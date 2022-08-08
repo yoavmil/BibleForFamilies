@@ -8,12 +8,12 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { CommentDto } from '../../../DTOs/comment.DTO';
+import { CommentDto } from './comment.DTO';
 import { CommentService } from './comment.service';
 
 @Controller('comment')
 export class CommentController {
-  constructor(private commentService: CommentService) {}
+  constructor(private commentService: CommentService) { }
 
   @Get()
   public async getComments() {

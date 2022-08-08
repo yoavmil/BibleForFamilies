@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Subscription } from 'rxjs';
-import { CommentDto } from '../../../../../DTOs/comment.DTO';
+import { CommentDto } from './comment.dto';
 import { CommentsService } from './comments.service';
 import labels from './labels.json';
 
