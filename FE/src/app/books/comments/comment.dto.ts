@@ -1,4 +1,4 @@
-/* WARNING!!! This file is auto-generated! Don't edit here! */ 
+/* WARNING!!! This file is auto-generated! Don't edit here! */
 export class CommentDto {
 	_id: number;
 	title: string;

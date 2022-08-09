@@ -1,4 +1,4 @@
-/* WARNING!!! This file is auto-generated! Don't edit here! */ 
+/* WARNING!!! This file is auto-generated! Don't edit here! */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 type CommentDocument = Comment & Document;
