@@ -1,0 +1,23 @@
+.vertical-center {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: auto;
+    width: var(--mobile-min-width);
+}
+
+mat-form-field {
+    width: 100%;
+    text-align: right;
+}
+
+.ltr {
+    text-align: left;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}

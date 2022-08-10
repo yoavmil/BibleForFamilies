@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import labels from './labels.json';
+
 @Component({
-  selector: 'app-entry',
-  templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class EntryComponent implements OnInit {
+export class LoginComponent implements OnInit {
+
   public labels = labels;
   form: FormControl = new FormControl('');
   isLoading = false;
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private router: Router) { }
 
   onLogin(form: NgForm) {
     // if (form.invalid) {
@@ -22,15 +25,10 @@ export class EntryComponent implements OnInit {
     // this.authService.login(form.value.email, form.value.password);
   }
 
-  onSignIn(form: NgForm) {
-    // if (form.invalid) {
-    //   return;
-    // }
-    // this.isLoading = true;
-    // this.authService.login(form.value.email, form.value.password);
+  newUser() {
+    this.router.navigate(["/sign-in"]);
   }
 
   ngOnInit(): void {
   }
-
 }

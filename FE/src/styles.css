@@ -18,3 +18,7 @@ body {
 .RTL {
   direction: rtl;
 }
+
+.LTR {
+  text-align: left;
+}

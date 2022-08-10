@@ -8,7 +8,9 @@ export class User {
 	@Prop()
 	email: string;
 	@Prop()
-	passwordHash: string;
+	validated: boolean;
+	@Prop()
+	hash: string;
 	@Prop()
 	firstName: string;
 	@Prop()

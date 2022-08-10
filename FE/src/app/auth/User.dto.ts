@@ -2,7 +2,8 @@
 export class UserDto {
 	_id: number;
 	email: string;
-	passwordHash: string;
+	validated: boolean;
+	hash: string;
 	firstName: string;
 	surname: string;
 	bookmarkURL: string;
