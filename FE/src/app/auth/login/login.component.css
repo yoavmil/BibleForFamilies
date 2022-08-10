@@ -12,10 +12,6 @@ mat-form-field {
     text-align: right;
 }
 
-.ltr {
-    text-align: left;
-}
-
 mat-card-actions {
     display: flex;
     justify-content: space-between;

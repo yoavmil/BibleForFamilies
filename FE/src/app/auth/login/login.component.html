@@ -3,13 +3,13 @@
     <mat-card>
         <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
             <mat-form-field color="accent">
-                <input class="ltr" matInput name="email" ngModel type="email" [placeholder]="labels.email"
+                <input class="LTR" matInput name="email" ngModel type="email" [placeholder]="labels.email"
                     #emailInput="ngModel" required email>
                 <mat-error *ngIf="emailInput.invalid">{{labels.invalid}}</mat-error>
             </mat-form-field>
 
             <mat-form-field color="accent">
-                <input class="ltr" type="password" name="password" ngModel matInput [placeholder]="labels.password"
+                <input class="LTR" type="password" name="password" ngModel matInput [placeholder]="labels.password"
                     #passwordInput="ngModel" required>
                 <mat-error *ngIf="passwordInput.invalid">{{labels.invalid}}</mat-error>
             </mat-form-field>
