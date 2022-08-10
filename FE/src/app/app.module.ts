@@ -11,6 +11,7 @@ import { BooksSpanComponent } from './header/books-span/books-span.component';
 import { BuildingBlocksModule } from './building-blocks/building-blocks.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { BooksModule } from './books/books.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BooksModule } from './books/books.module';
     MatToolbarModule,
     BuildingBlocksModule,
     LandingPageModule,
-    BooksModule
+    BooksModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

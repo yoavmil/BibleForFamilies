@@ -1,0 +1,25 @@
+<div class="RTL vertical-center">
+
+  <mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+      <mat-form-field color="accent">
+        <input class="ltr" matInput name="email" ngModel type="email" [placeholder]="labels.email" #emailInput="ngModel"
+          required email>
+        <mat-error *ngIf="emailInput.invalid">{{labels.invalid}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="accent">
+        <input class="ltr" type="password" name="password" ngModel matInput [placeholder]="labels.password"
+          #passwordInput="ngModel" required>
+        <mat-error *ngIf="passwordInput.invalid">{{labels.invalid}}</mat-error>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-button (click)="onLogin(loginForm)" *ngIf="!isLoading">{{labels.login}}</button>
+        <button mat-button (click)="onSignIn(loginForm)" *ngIf="!isLoading">{{labels.signIn}}</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+
+</div>

@@ -39,12 +39,24 @@ const dtos = [
         needScheme: false
     },
     {
+        name: "LoginResponse",
+        beFolder: "be/src/auth",
+        feFolder: "FE/src/app/auth",
+        fields: [
+            { name: "userId", },
+            { name: "token", },
+            { name: "expirationSeconds", type: "number" }
+        ],
+        needScheme: false
+    },
+    {
         name: "User", // all user data
         beFolder: "be/src/auth",
         feFolder: "FE/src/app/auth",
         fields: [
             { name: "email", },
-            { name: "passwordHash", },
+            { name: "validated", type: "boolean" },
+            { name: "hash", },
             { name: "firstName" },
             { name: "surname" },
             { name: "bookmarkURL" },

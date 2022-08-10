@@ -1,0 +1,36 @@
+# BibleForFamilies - TODO
+Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/learn/lecture/10540116)
+* User auth
+    * fe login
+        * reactive-forms
+    * fe sign in
+        * also Google sign in
+    * be routes
+    * email validation
+    * db
+        * mongoose-unique-validator
+        * user last login
+        * user first sign in        
+    * web token
+        * jsonwebtoken
+            * jwt.sign(), jwt.verify()
+        * http header - authorization
+        * allow dto-gen to receive objects and imports
+        * FE `class AuthInterceptor implements HttpInterceptor`
+        * expiration
+        * save to `localStorage`
+    * hash password
+        * bcrypt
+    * FE routes guard
+* comments
+    * comments by page
+    * comment on comment
+    * delete **my own** comment
+    * notification on my comments
+    * voting on comments
+    * name: default name from user profile
+    * anonymous comments
+    * markdown 
+        * preview
+        * short instructions
+
