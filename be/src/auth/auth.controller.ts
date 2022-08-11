@@ -4,10 +4,10 @@ import { LoginDataDto } from './LoginData.dto';
 
 @Controller('auth')
 export class AuthController {
-    constructor(private authService: AuthService) { }
+	constructor(private authService: AuthService) {}
 
-    @Get()
-    public async getUser(@Body() loginData: LoginDataDto) {
-        return this.authService.getUser(loginData);
-    }
+	@Get()
+	public async getUser(@Body() loginData: LoginDataDto) {
+		return this.authService.getUser(loginData);
+	}
 }
