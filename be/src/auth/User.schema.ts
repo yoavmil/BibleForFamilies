@@ -21,5 +21,7 @@ export class User {
 	signupDate: number;
 	@Prop()
 	lastLoginDate: number;
+	@Prop()
+	male: boolean;
 };
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -9,4 +9,5 @@ export class UserDto {
 	bookmarkURL: string;
 	signupDate: number;
 	lastLoginDate: number;
+	male: boolean;
 };

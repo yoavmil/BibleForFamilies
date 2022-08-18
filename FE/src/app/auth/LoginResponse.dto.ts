@@ -2,5 +2,5 @@
 export class LoginResponseDto {
 	userId: string;
 	token: string;
-	expirationSeconds: number;
+	expiresIn: number;
 };

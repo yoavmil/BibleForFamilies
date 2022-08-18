@@ -45,7 +45,7 @@ const dtos = [
         fields: [
             { name: "userId", },
             { name: "token", },
-            { name: "expirationSeconds", type: "number" }
+            { name: "expiresIn", type: "number" }
         ],
         needScheme: false
     },
@@ -62,6 +62,7 @@ const dtos = [
             { name: "bookmarkURL" },
             { name: "signupDate", type: "number" },
             { name: "lastLoginDate", type: "number" },
+            { name: "male", type: "boolean" }
         ],
         needScheme: true
     },

@@ -1,6 +1,8 @@
 # BibleForFamilies - TODO
 Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/learn/lecture/10540116)
 * User auth
+    * [good example](https://codesandbox.io/s/jhwwc?file=/src/user/models/user.model.ts:760-766)
+        * gender, [ascii](https://www.alt-codes.net/gender-symbol.php)
     * fe login
         * reactive-forms
     * fe sign in
@@ -30,6 +32,7 @@ Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/
     * voting on comments
     * name: default name from user profile
     * anonymous comments
+    * make date : Date
     * markdown 
         * preview
         * short instructions
