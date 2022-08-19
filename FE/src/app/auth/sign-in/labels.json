@@ -1,0 +1,9 @@
+{
+  "email": "אימייל",
+  "password": "סיסמה",
+  "invalid": "לא תקין",
+  "login": "כניסה",
+  "register": "רישום",
+  "firstName": "שם פרטי",
+  "surName": "שם משפחה"
+}

@@ -1,1 +1,82 @@
-<p>sign-in works!</p>
+<div class="RTL vertical-center">
+  <mat-card>
+    <form
+      (submit)="onRegister(loginForm)"
+      #loginForm="ngForm"
+      *ngIf="!isLoading"
+    >
+      <div class="full-row">
+        <mat-form-field color="accent" class="full-row">
+          <input
+            class="LTR"
+            matInput
+            name="email"
+            ngModel
+            type="email"
+            [placeholder]="labels.email"
+            #emailInput="ngModel"
+            required
+            email
+          />
+          <mat-error *ngIf="emailInput.invalid">{{ labels.invalid }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="full-row">
+        <mat-form-field color="accent" class="full-row">
+          <input
+            class="LTR"
+            type="password"
+            name="password"
+            ngModel
+            matInput
+            [placeholder]="labels.password"
+            #passwordInput="ngModel"
+            required
+          />
+          <mat-error *ngIf="passwordInput.invalid">{{
+            labels.invalid
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="two-in-a-row">
+        <mat-form-field color="accent" class="half-row">
+          <input
+            class="LTR"
+            type="text"
+            name="firstName"
+            ngModel
+            matInput
+            [placeholder]="labels.firstName"
+            #firstNameInput="ngModel"
+            required
+          />
+          <mat-error *ngIf="firstNameInput.invalid">{{
+            labels.invalid
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="half-row">
+          <input
+            class="LTR"
+            type="text"
+            name="surName"
+            ngModel
+            matInput
+            [placeholder]="labels.surName"
+            #firstNameInput="ngModel"
+            required
+          />
+          <mat-error *ngIf="firstNameInput.invalid">{{
+            labels.invalid
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-card-actions>
+        <button type="submit" mat-button>{{ labels.register }}</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

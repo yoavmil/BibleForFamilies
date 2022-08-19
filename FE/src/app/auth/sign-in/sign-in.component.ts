@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import labels from './labels.json';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,8 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  public labels = labels;
+  form: FormControl = new FormControl('');
+  isLoading = false;
 
+  constructor(public authService: AuthService, private router: Router) { }
+
+  onRegister(form: NgForm) {
+    // if (form.invalid) {
+    //   return;
+    // }
+    // this.isLoading = true;
+    // this.authService.login(form.value.email, form.value.password);
+  }
   ngOnInit(): void {
   }
 

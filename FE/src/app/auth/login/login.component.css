@@ -1,19 +1,28 @@
 .vertical-center {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    margin: auto;
-    width: var(--mobile-min-width);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: auto;
+  width: var(--mobile-min-width);
 }
-
+.full-row > mat-form-field {
+  width: 100%;
+}
+.two-in-a-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.two-in-a-row > mat-form-field {
+  width: 45%;
+}
 mat-form-field {
-    width: 100%;
-    text-align: right;
+  text-align: right;
 }
 
 mat-card-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
 }
