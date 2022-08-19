@@ -7,7 +7,7 @@ export class UserDto {
 	firstName: string;
 	surname: string;
 	bookmarkURL: string;
-	signupDate: number;
-	lastLoginDate: number;
+	signupDate: Date;
+	lastLoginDate: Date;
 	male: boolean;
 };

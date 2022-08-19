@@ -1,4 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {
+	BadRequestException,
+	Injectable,
+	InternalServerErrorException,
+	UnauthorizedException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { LoginDataDto } from './LoginData.dto';
@@ -6,48 +11,65 @@ import { LoginResponseDto } from './LoginResponse.dto';
 import UserDocument, { User } from './User.schema';
 import bcrypt from 'bcrypt';
 import { JwtPayload } from './token/jwt-payload';
+import { UserDto } from './User.dto';
 
 @Injectable()
 export class AuthService {
-    constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) { }
+	constructor(
+		@InjectModel(User.name) private userModel: Model<UserDocument>,
+		// @InjectModel(TokenService.name) private tokenService: TokenService,
+	) {}
 
-    async login(credentials: LoginDataDto): Promise<LoginResponseDto> {
-        const user = await this.userModel.findOne({ email: credentials.email });
+	async login(credentials: LoginDataDto): Promise<LoginResponseDto> {
+		const user = await this.userModel.findOne({ email: credentials.email });
 
-        if (!user) {
-            return Promise.resolve(null);
-        }
+		if (!user) {
+			throw new BadRequestException("User doesn't exist");
+		}
 
-        const passwordMatch = await bcrypt.compare(credentials.password, user.hash);
+		const passwordMatch = await bcrypt.compare(credentials.password, user.hash);
+		if (!passwordMatch) {
+			throw new UnauthorizedException('Wrong password');
+		}
 
-        if (!passwordMatch) {
-            throw new Error('Invalid credentials');
-        }
-        this.userModel.findByIdAndUpdate(user._id, {
-            lastLoginDate: new Date()
-        }).exec();
-        
-        const payload: JwtPayload = {
-            sub: user._id
-        };
+		this.userModel
+			.findByIdAndUpdate(user._id, {
+				lastLoginDate: new Date(),
+			})
+			.exec();
 
-        const loginResponse: LoginResponseDto = await this.tokenService.createAccessToken(
-            payload,
-          );
+		const payload: JwtPayload = {
+			sub: user._id,
+		};
 
-        const loginResponse: LoginResponseVm =
-            await this.tokenService.createAccessToken(payload);
+		let loginResponse: LoginResponseDto = {
+			expiresIn: 60,
+			token: "TODO this isn't a real token",
+			userId: user._id,
+		}; // TODO replace with await this.tokenService.createAccessToken(payload);
 
-        // We save the user's refresh token
-        const tokenContent = {
-            userId: loginResults.id,
-            clientId: credentials.clientId,
-            ipAddress,
-        };
-        const refresh = await this.tokenService.createRefreshToken(tokenContent);
+		return loginResponse;
+	}
 
-        loginResponse.refreshToken = refresh;
+	// async logout(userId: string, refreshToken: string): Promise<any> {
+	// 	await this.tokenService.deleteRefreshToken(userId, refreshToken);
+	// }
 
-        return loginResponse;
-    }
+	async register(user: UserDto): Promise<UserDto> {
+		const email = user.email;
+		let exist;
+		try {
+			exist = await this.userModel.findOne({ email: email });
+		} catch (error) {
+			throw new InternalServerErrorException('Error while creating user');
+		}
+
+		if (exist) {
+			throw new BadRequestException(`${email} already exists`);
+		}
+
+		user.lastLoginDate = user.signupDate = new Date();
+		const newUser = await this.userModel.create(user);
+		return newUser;
+	}
 }

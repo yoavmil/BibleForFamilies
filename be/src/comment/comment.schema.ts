@@ -12,6 +12,6 @@ export class Comment {
 	@Prop()
 	authorDisplayName: string;
 	@Prop()
-	date: number;
+	date: Date;
 };
 export const CommentSchema = SchemaFactory.createForClass(Comment);

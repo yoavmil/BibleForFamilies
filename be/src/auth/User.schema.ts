@@ -18,9 +18,9 @@ export class User {
 	@Prop()
 	bookmarkURL: string;
 	@Prop()
-	signupDate: number;
+	signupDate: Date;
 	@Prop()
-	lastLoginDate: number;
+	lastLoginDate: Date;
 	@Prop()
 	male: boolean;
 };
