@@ -53,13 +53,12 @@ const dtos = [
     fields: [
       { name: "email" },
       { name: "validated", type: "boolean" },
-      { name: "hash" },
+      { name: "password" , comment: "FE>BE: password, BE>FE: empty, DB: hash"},
       { name: "firstName" },
       { name: "surname" },
       { name: "bookmarkURL" },
       { name: "signupDate", type: "Date" },
       { name: "lastLoginDate", type: "Date" },
-      { name: "male", type: "boolean" },
     ],
     needScheme: true,
   },
@@ -88,7 +87,9 @@ function create() {
     ts += `export class ${dto.name}Dto {\n`;
     if (dto.needScheme) ts += "\t_id: number;\n"; // the mongo db _id value
     dto.fields.forEach((f) => {
-      ts += `\t${f.name}: ${f.type};\n`;
+      ts += `\t${f.name}: ${f.type};`;
+      if (f.comment) ts += ` // ${f.comment}`
+      ts += `\n`;
     });
     ts += "};\n";
 
@@ -117,7 +118,9 @@ function create() {
       ts += `@Schema()\nexport class ${dto.name} {\n`;
       dto.fields.forEach((f) => {
         ts += "\t@Prop()\n";
-        ts += `\t${f.name}: ${f.type};\n`;
+        ts += `\t${f.name}: ${f.type};`;
+        if (f.comment) ts += ` // ${f.comment}`
+        ts += `\n`;
       });
       ts += "};\n";
 

@@ -10,7 +10,7 @@ export class User {
 	@Prop()
 	validated: boolean;
 	@Prop()
-	hash: string;
+	password: string; // FE>BE: password, BE>FE: empty, DB: hash
 	@Prop()
 	firstName: string;
 	@Prop()
@@ -21,7 +21,5 @@ export class User {
 	signupDate: Date;
 	@Prop()
 	lastLoginDate: Date;
-	@Prop()
-	male: boolean;
 };
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -27,7 +27,7 @@ export class AuthService {
 			throw new BadRequestException("User doesn't exist");
 		}
 
-		const passwordMatch = await bcrypt.compare(credentials.password, user.hash);
+		const passwordMatch = await bcrypt.compare(credentials.password, user.password);
 		if (!passwordMatch) {
 			throw new UnauthorizedException('Wrong password');
 		}

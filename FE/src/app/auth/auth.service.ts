@@ -1,11 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UserDto } from './User.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  register(user: UserDto) {
+    this.http.post<UserDto>('auth/register', user).subscribe({
+      next: (acceptedUser: UserDto) => {
+        console.dir(acceptedUser);
+      },
+    });
+  }
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   login(email: string, password: string) {
     // const authData: AuthData = { email: email, password: password };

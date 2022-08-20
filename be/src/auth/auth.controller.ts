@@ -19,7 +19,7 @@ export class AuthController {
 	constructor(private authService: AuthService) {}
 
 	// learned from https://codesandbox.io/s/jhwwc?file=/src/auth/auth.controller.ts
-	@Post('user/login')
+	@Post('login')
 	@HttpCode(200)
 	@ApiResponse({ status: HttpStatus.OK, type: LoginResponseDto })
 	@ApiResponse({ status: HttpStatus.UNAUTHORIZED, type: UnauthorizedException })
@@ -29,7 +29,7 @@ export class AuthController {
 		return loginResults;
 	}
 
-	@Post('user/register')
+	@Post('register')
 	@ApiResponse({ status: HttpStatus.CREATED, type: UserDto })
 	@ApiResponse({ status: HttpStatus.BAD_REQUEST, type: BadRequestException })
 	@ApiResponse({
