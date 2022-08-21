@@ -6,15 +6,18 @@ import { UserDto } from './User.dto';
   providedIn: 'root',
 })
 export class AuthService {
+
+  private beURL = 'http://localhost:3001';
+
   register(user: UserDto) {
-    this.http.post<UserDto>('auth/register', user).subscribe({
+    this.http.post<UserDto>(`${this.beURL}/auth/register`, user).subscribe({
       next: (acceptedUser: UserDto) => {
         console.dir(acceptedUser);
       },
     });
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
     // const authData: AuthData = { email: email, password: password };
