@@ -9,15 +9,14 @@ import { Model } from 'mongoose';
 import { LoginDataDto } from './LoginData.dto';
 import { LoginResponseDto } from './LoginResponse.dto';
 import UserDocument, { User } from './User.schema';
-import bcrypt from 'bcrypt';
+import bcrypt, { genSalt, hash } from 'bcrypt';
 import { JwtPayload } from './token/jwt-payload';
 import { UserDto } from './User.dto';
 
 @Injectable()
 export class AuthService {
 	constructor(
-		@InjectModel(User.name) private userModel: Model<UserDocument>,
-		// @InjectModel(TokenService.name) private tokenService: TokenService,
+		@InjectModel(User.name) private userModel: Model<UserDocument>, // @InjectModel(TokenService.name) private tokenService: TokenService,
 	) {}
 
 	async login(credentials: LoginDataDto): Promise<LoginResponseDto> {
@@ -27,8 +26,14 @@ export class AuthService {
 			throw new BadRequestException("User doesn't exist");
 		}
 
-		const passwordMatch = await bcrypt.compare(credentials.password, user.password);
+		const hashed = await this.hashPassword(credentials.password);
+		console.log(
+			`found user ${user} ${credentials.password} ${user.password} ${hashed}`,
+		);
+		const passwordMatch = hashed == user.password;
+		console.log(`passwordMatch ${passwordMatch}`);
 		if (!passwordMatch) {
+			console.log(`password missmatch`);
 			throw new UnauthorizedException('Wrong password');
 		}
 
@@ -47,7 +52,7 @@ export class AuthService {
 			token: "TODO this isn't a real token",
 			userId: user._id,
 		}; // TODO replace with await this.tokenService.createAccessToken(payload);
-
+		console.log(`found user ${user._id}`);
 		return loginResponse;
 	}
 
@@ -69,7 +74,15 @@ export class AuthService {
 		}
 
 		user.lastLoginDate = user.signupDate = new Date();
+		user.password = await this.hashPassword(user.password);
 		const newUser = await this.userModel.create(user);
 		return newUser;
+	}
+
+	protected async hashPassword(password: string): Promise<string> {
+		const salt = await genSalt(12);
+		const hashedPassword = await hash(password, salt);
+
+		return hashedPassword;
 	}
 }
