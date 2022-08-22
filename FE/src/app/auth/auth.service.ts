@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDataDto } from './LoginData.dto';
-import { LoginResponseDto } from './LoginResponse.dto';
 import { UserDto } from './User.dto';
 
 @Injectable({
@@ -25,33 +24,10 @@ export class AuthService {
       email: email,
       password: password,
     };
-    this.http
-      .post<LoginResponseDto>(`${this.beURL}/auth/login`, loginData)
-      .subscribe({
-        next: (res: LoginResponseDto) => {
-          console.dir(res);
-        }, // TODO add error
-      });
-    // const authData: AuthData = { email: email, password: password };
-    // this.http
-    //   .post<{ token: string; expiresIn: number }>(
-    //     "http://localhost:3000/api/user/login",
-    //     authData
-    //   )
-    //   .subscribe(response => {
-    //     const token = response.token;
-    //     this.token = token;
-    //     if (token) {
-    //       const expiresInDuration = response.expiresIn;
-    //       this.setAuthTimer(expiresInDuration);
-    //       this.isAuthenticated = true;
-    //       this.authStatusListener.next(true);
-    //       const now = new Date();
-    //       const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
-    //       console.log(expirationDate);
-    //       this.saveAuthData(token, expirationDate);
-    //       this.router.navigate(["/"]);
-    //     }
-    //   });
+    this.http.post<UserDto>(`${this.beURL}/auth/login`, loginData).subscribe({
+      next: (res: UserDto) => {
+        console.dir(res);
+      }, // TODO add error
+    });
   }
 }

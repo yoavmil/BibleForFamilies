@@ -32,4 +32,8 @@ export class SignInComponent implements OnInit {
     this.authService.register(user);
   }
   ngOnInit(): void {}
+
+  oldUser() {
+    this.router.navigate(['/login']);
+  }
 }

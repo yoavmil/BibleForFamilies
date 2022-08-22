@@ -36,17 +36,6 @@ const dtos = [
     needScheme: false,
   },
   {
-    name: "LoginResponse",
-    beFolder: "be/src/auth",
-    feFolder: "FE/src/app/auth",
-    fields: [
-      { name: "userId" },
-      { name: "token" },
-      { name: "expiresIn", type: "number" },
-    ],
-    needScheme: false,
-  },
-  {
     name: "User", // all user data
     beFolder: "be/src/auth",
     feFolder: "FE/src/app/auth",

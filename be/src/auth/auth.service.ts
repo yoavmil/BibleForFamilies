@@ -7,33 +7,23 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { LoginDataDto } from './LoginData.dto';
-import { LoginResponseDto } from './LoginResponse.dto';
 import UserDocument, { User } from './User.schema';
-import bcrypt, { genSalt, hash } from 'bcrypt';
-import { JwtPayload } from './token/jwt-payload';
+import { compareSync, genSalt, hash } from 'bcrypt';
 import { UserDto } from './User.dto';
 
 @Injectable()
 export class AuthService {
-	constructor(
-		@InjectModel(User.name) private userModel: Model<UserDocument>, // @InjectModel(TokenService.name) private tokenService: TokenService,
-	) {}
+	constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-	async login(credentials: LoginDataDto): Promise<LoginResponseDto> {
+	async login(credentials: LoginDataDto): Promise<UserDto> {
 		const user = await this.userModel.findOne({ email: credentials.email });
 
 		if (!user) {
 			throw new BadRequestException("User doesn't exist");
 		}
 
-		const hashed = await this.hashPassword(credentials.password);
-		console.log(
-			`found user ${user} ${credentials.password} ${user.password} ${hashed}`,
-		);
-		const passwordMatch = hashed == user.password;
-		console.log(`passwordMatch ${passwordMatch}`);
+		const passwordMatch = compareSync(credentials.password, user.password);
 		if (!passwordMatch) {
-			console.log(`password missmatch`);
 			throw new UnauthorizedException('Wrong password');
 		}
 
@@ -43,17 +33,8 @@ export class AuthService {
 			})
 			.exec();
 
-		const payload: JwtPayload = {
-			sub: user._id,
-		};
-
-		let loginResponse: LoginResponseDto = {
-			expiresIn: 60,
-			token: "TODO this isn't a real token",
-			userId: user._id,
-		}; // TODO replace with await this.tokenService.createAccessToken(payload);
-		console.log(`found user ${user._id}`);
-		return loginResponse;
+		user.password = '';
+		return user;
 	}
 
 	// async logout(userId: string, refreshToken: string): Promise<any> {
@@ -80,7 +61,7 @@ export class AuthService {
 	}
 
 	protected async hashPassword(password: string): Promise<string> {
-		const salt = await genSalt(12);
+		const salt = await genSalt();
 		const hashedPassword = await hash(password, salt);
 
 		return hashedPassword;
