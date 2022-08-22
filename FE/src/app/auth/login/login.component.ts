@@ -7,28 +7,31 @@ import labels from './labels.json';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   public labels = labels;
   form: FormControl = new FormControl('');
   isLoading = false;
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) {}
 
   onLogin(form: NgForm) {
     if (form.invalid) {
       return;
     }
     this.isLoading = true;
-    this.authService.login(form.value.email, form.value.password);
+    try {
+      this.authService.login(form.value.email, form.value.password);
+    } catch (err) {
+      console.dir(err);
+      // TODO I'm here
+    }
   }
 
   newUser() {
-    this.router.navigate(["/sign-in"]);
+    this.router.navigate(['/sign-in']);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDataDto } from './LoginData.dto';
 import { UserDto } from './User.dto';
@@ -7,13 +7,17 @@ import { UserDto } from './User.dto';
   providedIn: 'root',
 })
 export class AuthService {
+  public user: UserDto;
   private beURL = 'http://localhost:3001';
 
   register(user: UserDto) {
     this.http.post<UserDto>(`${this.beURL}/auth/register`, user).subscribe({
       next: (acceptedUser: UserDto) => {
         console.dir(acceptedUser);
-      }, // TODO add error
+      },
+      error: (err: HttpErrorResponse) => {
+        throw err;
+      },
     });
   }
 
@@ -25,9 +29,12 @@ export class AuthService {
       password: password,
     };
     this.http.post<UserDto>(`${this.beURL}/auth/login`, loginData).subscribe({
-      next: (res: UserDto) => {
-        console.dir(res);
-      }, // TODO add error
+      next: (user: UserDto) => {
+        this.user = user;
+      },
+      error: (err: HttpErrorResponse) => {
+        throw err;
+      },
     });
   }
 }
