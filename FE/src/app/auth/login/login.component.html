@@ -1,6 +1,6 @@
 <div class="RTL vertical-center">
   <mat-card>
-    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
       <div class="full-row">
         <mat-form-field color="accent" class="full-row">
           <input
@@ -34,12 +34,21 @@
             labels.invalid
           }}</mat-error>
         </mat-form-field>
+        <mat-error *ngIf="wrongPassword">{{ labels.wrongPassword }}</mat-error>
+        <mat-error *ngIf="wrongEmail">{{ labels.wrongEmail }}</mat-error>
       </div>
 
       <mat-card-actions>
         <button type="submit" mat-button>{{ labels.login }}</button>
         <button (click)="newUser()" mat-button>{{ labels.newUser }}</button>
       </mat-card-actions>
+
+      <mat-card-footer>
+        <mat-progress-bar
+          *ngIf="isLoading"
+          mode="indeterminate"
+        ></mat-progress-bar>
+      </mat-card-footer>
     </form>
   </mat-card>
 </div>

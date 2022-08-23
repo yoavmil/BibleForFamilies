@@ -8,12 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    SignInComponent
-  ],
+  declarations: [LoginComponent, SignInComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -22,7 +20,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
-  ]
+    MatProgressBarModule,
+    HttpClientModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

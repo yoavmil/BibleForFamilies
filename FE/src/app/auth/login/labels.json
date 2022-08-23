@@ -4,5 +4,7 @@
   "invalid": "לא תקין",
   "login": "כניסה",
   "signIn": "רישום",
-  "newUser": "משתמש חדש"
+  "newUser": "משתמש חדש",
+  "wrongPassword": "סיסמה שגויה",
+  "wrongEmail": "אימייל לא קיים"
 }

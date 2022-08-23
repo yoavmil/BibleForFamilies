@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   public labels = labels;
   form: FormControl = new FormControl('');
   isLoading = false;
+  wrongPassword = false;
+  wrongEmail = false;
 
   constructor(public authService: AuthService, private router: Router) {}
 
@@ -21,12 +23,17 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    try {
-      this.authService.login(form.value.email, form.value.password);
-    } catch (err) {
-      console.dir(err);
-      // TODO I'm here
-    }
+    this.wrongPassword = false;
+    this.wrongEmail = false;
+
+    this.authService
+      .login(form.value.email, form.value.password)
+      .then(() => (this.isLoading = false))
+      .catch((err) => {
+        this.isLoading = false;
+        this.wrongPassword = err.statusText == 'Unauthorized';
+        this.wrongEmail = err.statusText == 'Bad Request';
+      });
   }
 
   newUser() {
