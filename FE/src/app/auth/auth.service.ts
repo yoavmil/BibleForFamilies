@@ -12,7 +12,7 @@ export class AuthService {
   get hasUser(): boolean {
     return !!this.user;
   }
-  public isMe(id: number): boolean {
+  public isMe(id: string): boolean {
     return this.hasUser && this.user._id == id;
   }
   private beURL = 'http://localhost:3001';
