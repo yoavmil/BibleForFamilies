@@ -1,6 +1,6 @@
 /* WARNING!!! This file is auto-generated! Don't edit here! */
 export class UserDto {
-	_id: number;
+	_id: string;
 	email: string;
 	validated: boolean;
 	password: string; // FE>BE: password, BE>FE: empty, DB: hash
