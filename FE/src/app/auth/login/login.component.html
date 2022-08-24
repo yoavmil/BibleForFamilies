@@ -22,13 +22,14 @@
         <mat-form-field color="accent" class="full-row">
           <input
             class="LTR"
-            [type]="showPassword ? 'text' : 'password'"
+            type="password"
             name="password"
             ngModel
             matInput
             [placeholder]="labels.password"
             #passwordInput="ngModel"
             required
+            #password
           />
           <mat-error *ngIf="passwordInput.invalid">{{
             labels.invalid
@@ -36,9 +37,10 @@
           <mat-icon
             style="cursor: pointer"
             matSuffix
-            (mousedown)="showPassword = true"
-            (mouseup)="showPassword = false"
-            >{{ showPassword ? "visibility_off" : "visibility" }}
+            (mousedown)="password.type = 'text'"
+            (mouseup)="password.type = 'password'"
+            [inline]="true"
+            >{{ password.type == "password" ? "visibility_off" : "visibility" }}
           </mat-icon>
         </mat-form-field>
         <mat-error *ngIf="wrongPassword">{{ labels.wrongPassword }}</mat-error>
