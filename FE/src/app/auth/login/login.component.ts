@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
 
     this.authService
       .login(form.value.email, form.value.password)
-      .then(() => (this.isLoading = false))
+      .then(() => {
+        this.isLoading = false;
+        this.router.navigate(['/']);
+      })
       .catch((err) => {
         this.isLoading = false;
         this.wrongPassword = err.statusText == 'Unauthorized';
