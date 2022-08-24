@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
-import { UserService } from '../Services/user.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   constructor(
-    private userService: UserService,
-    private deviceService: DeviceDetectorService) { }
+    private authService: AuthService,
+    private deviceService: DeviceDetectorService
+  ) {}
 
-  public get hasUser(): boolean { return this.userService.hasUser; }
+  public get hasUser(): boolean {
+    return this.authService.hasUser;
+  }
   public get isMobile(): boolean {
     return this.deviceService.isMobile();
   }

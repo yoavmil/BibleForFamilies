@@ -8,12 +8,12 @@ import { UserDto } from './User.dto';
   providedIn: 'root',
 })
 export class AuthService {
-  public user: UserDto;
+  public user?: UserDto;
   get hasUser(): boolean {
     return !!this.user;
   }
   public isMe(id: string): boolean {
-    return this.hasUser && this.user._id == id;
+    return this.hasUser && this.user!._id == id;
   }
   private beURL = 'http://localhost:3001';
 
@@ -38,13 +38,9 @@ export class AuthService {
     this.user = await firstValueFrom(
       this.http.post<UserDto>(`${this.beURL}/auth/login`, loginData)
     );
-    console.dir(this.user);
-    //   next: (user: UserDto) => {
-    //     this.user = user;
-    //   },
-    //   error: (err: HttpErrorResponse) => {
-    //     throw err;
-    //   },
-    // });
+  }
+
+  async logout() {
+    delete this.user;
   }
 }

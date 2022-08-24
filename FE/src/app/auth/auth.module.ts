@@ -10,9 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignInComponent],
+  declarations: [LoginComponent, SignInComponent, ProfileComponent],
   imports: [
     CommonModule,
     MatCardModule,

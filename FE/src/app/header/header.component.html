@@ -1,16 +1,16 @@
 <mat-toolbar dir="rtl">
-    <mat-toolbar-row>
-        <a routerLink="/">התנ"ך למשפחות</a>
+  <mat-toolbar-row>
+    <a routerLink="/">התנ"ך למשפחות</a>
 
-        <app-books-span *ngIf="!isMobile"></app-books-span>
+    <app-books-span *ngIf="!isMobile"></app-books-span>
 
-        <span>
-            <span *ngIf="!hasUser">
-                <a routerLink="login">כניסה</a>
-            </span>
-            <span *ngIf="hasUser">
-                <a>פרופיל</a>
-            </span>
-        </span>
-    </mat-toolbar-row>
+    <span>
+      <span *ngIf="!hasUser">
+        <a routerLink="login">כניסה</a>
+      </span>
+      <span *ngIf="hasUser">
+        <a routerLink="profile">פרופיל</a>
+      </span>
+    </span>
+  </mat-toolbar-row>
 </mat-toolbar>

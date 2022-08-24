@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './auth/login/login.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { GeneralComponent } from './books/general/general.component';
 import { YehoshuaComponent } from './books/yehoshua/yehoshua.component';
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'HowToLearn', redirectTo: 'General/0' },
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: '/' },
 ];
 
@@ -22,4 +24,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
