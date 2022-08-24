@@ -22,7 +22,7 @@
         <mat-form-field color="accent" class="full-row">
           <input
             class="LTR"
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
             name="password"
             ngModel
             matInput
@@ -33,6 +33,13 @@
           <mat-error *ngIf="passwordInput.invalid">{{
             labels.invalid
           }}</mat-error>
+          <mat-icon
+            style="cursor: pointer"
+            matSuffix
+            (mousedown)="showPassword = true"
+            (mouseup)="showPassword = false"
+            >{{ showPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
         </mat-form-field>
         <mat-error *ngIf="wrongPassword">{{ labels.wrongPassword }}</mat-error>
         <mat-error *ngIf="wrongEmail">{{ labels.wrongEmail }}</mat-error>

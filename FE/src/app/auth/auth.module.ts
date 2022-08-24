@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [LoginComponent, SignInComponent],
@@ -21,6 +22,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatInputModule,
     MatButtonModule,
     MatProgressBarModule,
+    MatIconModule,
     HttpClientModule,
   ],
 })
