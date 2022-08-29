@@ -13,6 +13,8 @@ body {
   --mobile-min-width: 360px;
   --card-padding: 16px;
   --nominal-card-width: 25rem;
+  --bs-x: 0; /* box shadow */
+  --bs-y: 0; /* box shadow */
 }
 
 .RTL {
@@ -21,4 +23,11 @@ body {
 
 .LTR {
   text-align: left;
+}
+
+mat-card,
+mat-expansion-panel {
+  /* move shadow by mouse position */
+  box-shadow: var(--bs-x) var(--bs-y) #669d31 !important;
+  transition: none !important; /* allow smooth dynamic shadow*/
 }
