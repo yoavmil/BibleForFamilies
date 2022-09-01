@@ -22,10 +22,12 @@ export class PageComponent {
   @Input() content: BookData;
 
   public get chapter(): Chapter {
-    let idxString = this.activeRoute.snapshot.paramMap.get('id');
-    if (!idxString) idxString = '0';
-    let idx = parseInt(idxString);
-    return this.content.chapters[idx];
+    let idString = this.activeRoute.snapshot.paramMap.get('id');
+    if (!idString) idString = '0';
+    let id = parseInt(idString);
+    const result = this.content.chapters.find((c) => c.id == id);
+    if (!result) return this.content.chapters[0];
+    return result;
   }
 
   public get isMobile(): boolean {
@@ -34,7 +36,8 @@ export class PageComponent {
 
   public indexItemClicked(i: number) {
     const base = this.activeRoute.snapshot.url[0].path;
-    this.router.navigate([base, `${i}`]);
+    const id = this.content.chapters[i].id;
+    this.router.navigate([base, `${id}`]);
   }
 
   public process(md: string): string {
