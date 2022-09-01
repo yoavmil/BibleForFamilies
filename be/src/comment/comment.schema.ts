@@ -13,5 +13,7 @@ export class Comment {
 	authorDisplayName: string;
 	@Prop()
 	date: Date;
+	@Prop()
+	url: string;
 };
 export const CommentSchema = SchemaFactory.createForClass(Comment);

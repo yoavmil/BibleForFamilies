@@ -25,6 +25,7 @@ const dtos = [
       { name: "content" },
       { name: "authorDisplayName" },
       { name: "date", type: "Date" },
+      { name: "url" },
     ],
     needScheme: true,
   },
