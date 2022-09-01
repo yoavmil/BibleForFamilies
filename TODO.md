@@ -2,17 +2,17 @@
 Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/learn/lecture/10540116)
 * User auth
     * [good example](https://codesandbox.io/s/jhwwc?file=/src/user/models/user.model.ts:760-766)
-        * gender, [ascii](https://www.alt-codes.net/gender-symbol.php)
-    * fe login
-        * reactive-forms
-    * fe sign in
-        * also Google sign in
-    * be routes
+        * ~~gender, [ascii](https://www.alt-codes.net/gender-symbol.php)~~
+    * ~~fe login~~
+        * ~~reactive-forms~~
+        * Google sign in
+        * modal maybe
+    * ~~be routes~~
     * email validation
     * db
-        * mongoose-unique-validator
-        * user last login
-        * user first sign in        
+        * ~~mongoose-unique-validator~~
+        * ~~user last login~~
+        * ~~user first sign in~~    
     * web token
         * jsonwebtoken
             * jwt.sign(), jwt.verify()
@@ -21,8 +21,8 @@ Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/
         * FE `class AuthInterceptor implements HttpInterceptor`
         * expiration
         * save to `localStorage`
-    * hash password
-        * bcrypt
+    * ~~hash password~~
+        * ~~bcrypt~~
     * FE routes guard
 * comments
     * comments by page
