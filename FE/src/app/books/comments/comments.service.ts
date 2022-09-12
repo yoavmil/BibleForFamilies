@@ -1,4 +1,8 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CommentDto } from './comment.dto';
@@ -17,15 +21,18 @@ export class CommentsService {
   constructor(private http: HttpClient) {}
 
   public getComments(url: string) {
-    this.http.get<CommentDto[]>(this.commentsURL + `/${url}`).subscribe({
-      next: (comments) => {
-        this.comments = comments;
-        this.commentsUpdated.next(this.comments);
-      },
-      error: (err: HttpErrorResponse) => {
-        console.error(`got error at ${this.commentsURL}: ${err.message}`);
-      },
-    });
+    let params = new HttpParams().set('url', url);
+    this.http
+      .get<CommentDto[]>(this.commentsURL, { params: params })
+      .subscribe({
+        next: (comments) => {
+          this.comments = comments;
+          this.commentsUpdated.next(this.comments);
+        },
+        error: (err: HttpErrorResponse) => {
+          console.error(`got error at ${this.commentsURL}: ${err.message}`);
+        },
+      });
   }
 
   public addComment(comment: CommentDto) {

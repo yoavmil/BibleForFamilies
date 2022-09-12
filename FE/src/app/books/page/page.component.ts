@@ -26,7 +26,10 @@ export class PageComponent {
     if (!idString) idString = '0';
     let id = parseInt(idString);
     const result = this.content.chapters.find((c) => c.id == id);
-    if (!result) return this.content.chapters[0];
+    if (!result) {
+      this.indexItemClicked(0); // navigates to another page
+      return this.content.chapters[0]; // this code doesn't happen
+    }
     return result;
   }
 

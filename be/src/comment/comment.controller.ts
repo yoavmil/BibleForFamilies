@@ -20,9 +20,9 @@ export class CommentController {
 		return this.commentService.postComment(comment);
 	}
 
-	@Get(':url')
-	public async getComments(@Param('url') url: string): Promise<CommentDto[]> {
-		return await this.commentService.getComments(url);
+	@Get()
+	public async getComments(@Query() query): Promise<CommentDto[]> {
+		return await this.commentService.getComments(query.url);
 	}
 
 	@Delete(':id')
