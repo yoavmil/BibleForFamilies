@@ -12,6 +12,8 @@ export class User {
 	@Prop()
 	password: string; // FE>BE: password, BE>FE: empty, DB: hash
 	@Prop()
+	token: string;
+	@Prop()
 	firstName: string;
 	@Prop()
 	surname: string;

@@ -33,7 +33,11 @@ const dtos = [
     name: "LoginData", // for login
     beFolder: "be/src/auth",
     feFolder: "FE/src/app/auth",
-    fields: [{ name: "email" }, { name: "password" }],
+    fields: [
+      { name: "email?" },
+      { name: "password?" },
+      { name: "token?", comment: "alternative for email & password" },
+    ],
     needScheme: false,
   },
   {
@@ -44,6 +48,7 @@ const dtos = [
       { name: "email" },
       { name: "validated", type: "boolean" },
       { name: "password", comment: "FE>BE: password, BE>FE: empty, DB: hash" },
+      { name: "token" },
       { name: "firstName" },
       { name: "surname" },
       { name: "bookmarkURL" },

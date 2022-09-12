@@ -10,21 +10,31 @@ import { LoginDataDto } from './LoginData.dto';
 import UserDocument, { User } from './User.schema';
 import { compareSync, genSalt, hash } from 'bcrypt';
 import { UserDto } from './User.dto';
+import { sign, verify } from 'jsonwebtoken';
 
 @Injectable()
 export class AuthService {
 	constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
 	async login(credentials: LoginDataDto): Promise<UserDto> {
-		const user = await this.userModel.findOne({ email: credentials.email });
+		let user: UserDto;
+		if (!!credentials.token && credentials.token != '') {
+			user = await this.verifyToken(credentials.token);
 
-		if (!user) {
-			throw new BadRequestException("User doesn't exist");
-		}
+			if (!user) {
+				throw new BadRequestException('Token invalid');
+			}
+		} else {
+			user = await this.userModel.findOne({ email: credentials.email });
 
-		const passwordMatch = compareSync(credentials.password, user.password);
-		if (!passwordMatch) {
-			throw new UnauthorizedException('Wrong password');
+			if (!user) {
+				throw new BadRequestException("User doesn't exist");
+			}
+
+			const passwordMatch = compareSync(credentials.password, user.password);
+			if (!passwordMatch) {
+				throw new UnauthorizedException('Wrong password');
+			}
 		}
 
 		this.userModel
@@ -34,12 +44,9 @@ export class AuthService {
 			.exec();
 
 		user.password = '';
+		user.token = this.createToken(user);
 		return user;
 	}
-
-	// async logout(userId: string, refreshToken: string): Promise<any> {
-	// 	await this.tokenService.deleteRefreshToken(userId, refreshToken);
-	// }
 
 	async register(user: UserDto): Promise<UserDto> {
 		const email = user.email;
@@ -56,7 +63,9 @@ export class AuthService {
 
 		user.lastLoginDate = user.signupDate = new Date();
 		user.password = await this.hashPassword(user.password);
-		const newUser = await this.userModel.create(user);
+		delete user.token; // no need to save the token
+		let newUser = await this.userModel.create(user);
+		newUser.token = this.createToken(newUser);
 		return newUser;
 	}
 
@@ -65,5 +74,20 @@ export class AuthService {
 		const hashedPassword = await hash(password, salt);
 
 		return hashedPassword;
+	}
+
+	private jwtSecret = 'bff_sectet_jwt';
+	private createToken(user: UserDto) {
+		return sign({ email: user.email, userId: user._id }, this.jwtSecret);
+	}
+	private async verifyToken(token: string): Promise<UserDto> {
+		const jwtPayload: { email: string; userId: string; iat: number } = verify(
+			token,
+			this.jwtSecret,
+		) as any;
+
+		let user = await this.userModel.findById(jwtPayload.userId);
+		if (user.email == jwtPayload.email) return user;
+		return null;
 	}
 }

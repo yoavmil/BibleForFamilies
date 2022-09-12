@@ -22,8 +22,8 @@ export class CommentsService {
 
   public getComments(url: string) {
     let params = new HttpParams().set('url', url);
-    this.http
-      .get<CommentDto[]>(this.commentsURL, { params: params })
+    this.http // TODO replace to get and replace params with a new TDO
+      .post<CommentDto[]>(this.commentsURL, { params: params })
       .subscribe({
         next: (comments) => {
           this.comments = comments;
