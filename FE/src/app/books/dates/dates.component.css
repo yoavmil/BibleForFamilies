@@ -1,0 +1,7 @@
+table.mat-table {
+  border-spacing: 0;
+  direction: rtl;
+  margin: 1rem;
+  padding: 0.5rem;
+  width: 75%;
+}

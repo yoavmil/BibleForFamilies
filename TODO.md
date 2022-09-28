@@ -39,4 +39,7 @@ Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/
 * Page navigation
   * after click, scroll to top
   * highlight current chapter
+* Bible dates, by year cycle and by chronoligal order
+  * י ניסן
+  * dates that are calc from another date
 

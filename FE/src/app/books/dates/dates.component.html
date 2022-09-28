@@ -1,0 +1,17 @@
+<table dir="rtl" mat-table [dataSource]="cycle" class="mat-elevation-z8">
+  <ng-container matColumnDef="cycle">
+    <th mat-header-cell *matHeaderCellDef>תאריך</th>
+    <td mat-cell *matCellDef="let entry">{{ entry.cycle }}</td>
+  </ng-container>
+  <ng-container matColumnDef="source">
+    <th mat-header-cell *matHeaderCellDef>מקור</th>
+    <td mat-cell *matCellDef="let entry">{{ entry.source }}</td>
+  </ng-container>
+  <ng-container matColumnDef="sum">
+    <th mat-header-cell *matHeaderCellDef>תקציר</th>
+    <td mat-cell *matCellDef="let entry">{{ entry.sum }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="cycleCols"></tr>
+  <tr mat-row *matRowDef="let row; columns: cycleCols"></tr>
+</table>
