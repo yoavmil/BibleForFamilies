@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { DatesComponent } from './dates/dates.component';
+import { PrayersComponent } from './prayers/prayers.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DatesComponent } from './dates/dates.component';
     GeneralComponent,
     CommentsComponent,
     DatesComponent,
+    PrayersComponent,
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { DatesComponent } from './books/dates/dates.component';
 import { GeneralComponent } from './books/general/general.component';
+import { PrayersComponent } from './books/prayers/prayers.component';
 import { YehoshuaComponent } from './books/yehoshua/yehoshua.component';
 import { MainComponent } from './landing-page/main/main.component';
 
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'General/:id', component: GeneralComponent },
   { path: 'HowToLearn', redirectTo: 'General/0' },
   { path: 'dates', component: DatesComponent },
+  { path: 'prayers', component: PrayersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'profile', component: ProfileComponent },
