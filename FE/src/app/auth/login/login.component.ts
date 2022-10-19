@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, NgForm } from '@angular/forms';
+import { UntypedFormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {
@@ -16,7 +16,7 @@ import labels from './labels.json';
 })
 export class LoginComponent implements OnInit {
   public labels = labels;
-  form: FormControl = new FormControl('');
+  form: UntypedFormControl = new UntypedFormControl('');
   isLoading = false;
   wrongPassword = false;
   wrongEmail = false;
