@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import {
+  SocialAuthService,
+  GoogleLoginProvider,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
 import labels from './labels.json';
 
 @Component({
@@ -16,7 +21,11 @@ export class LoginComponent implements OnInit {
   wrongPassword = false;
   wrongEmail = false;
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    private socialAuthService: SocialAuthService
+  ) {}
 
   onLogin(form: NgForm) {
     if (form.invalid) {
@@ -43,5 +52,13 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/sign-in']);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.socialAuthService.authState.subscribe((user: SocialUser) => {
+      console.dir(user);
+    });
+  }
+
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
 }

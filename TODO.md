@@ -6,6 +6,9 @@ Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/
     * ~~fe login~~
         * ~~reactive-forms~~
         * Google sign in
+            id's created at https://console.cloud.google.com/apis/dashboard?project=decisive-unison-366010
+            client ID 338131212001-ecjtban40ms2m7tu4179i0cc6bb1vdvp.apps.googleusercontent.com
+            Client Secret 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
         * modal maybe
     * ~~be routes~~
     * email validation
