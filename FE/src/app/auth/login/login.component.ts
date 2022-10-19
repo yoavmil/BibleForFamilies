@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {
   SocialAuthService,
-  GoogleLoginProvider,
   SocialUser,
 } from '@abacritt/angularx-social-login';
 import labels from './labels.json';
@@ -54,11 +53,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.socialAuthService.authState.subscribe((user: SocialUser) => {
+      console.log('got user');
       console.dir(user);
     });
-  }
-
-  loginWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 }

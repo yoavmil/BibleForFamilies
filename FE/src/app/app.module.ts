@@ -42,7 +42,9 @@ import {
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('338131212001-ecjtban40ms2m7tu4179i0cc6bb1vdvp.apps.googleusercontent.com'),
+            provider: new GoogleLoginProvider(
+              '338131212001-ecjtban40ms2m7tu4179i0cc6bb1vdvp.apps.googleusercontent.com'
+            ),
           },
           // {
           //   id: FacebookLoginProvider.PROVIDER_ID,

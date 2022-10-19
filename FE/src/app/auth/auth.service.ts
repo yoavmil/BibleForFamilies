@@ -25,6 +25,7 @@ export class AuthService {
     this.http.post<UserDto>(`${this.beURL}/auth/register`, user).subscribe({
       next: (acceptedUser: UserDto) => {
         this.onLogin((this.user = acceptedUser));
+        console.log('accepted user:');
         console.dir(acceptedUser);
       },
       error: (err: HttpErrorResponse) => {
