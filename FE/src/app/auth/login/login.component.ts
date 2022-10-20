@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, NgForm } from '@angular/forms';
+import { UntypedFormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import {
+  SocialAuthService,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
 import labels from './labels.json';
 
 @Component({
@@ -11,12 +15,16 @@ import labels from './labels.json';
 })
 export class LoginComponent implements OnInit {
   public labels = labels;
-  form: FormControl = new FormControl('');
+  form: UntypedFormControl = new UntypedFormControl('');
   isLoading = false;
   wrongPassword = false;
   wrongEmail = false;
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    private socialAuthService: SocialAuthService
+  ) {}
 
   onLogin(form: NgForm) {
     if (form.invalid) {
@@ -43,5 +51,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/sign-in']);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.socialAuthService.authState.subscribe((user: SocialUser) => {
+      console.log('got user');
+      console.dir(user);
+    });
+  }
 }

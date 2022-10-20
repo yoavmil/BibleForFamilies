@@ -12,13 +12,17 @@ import { BuildingBlocksModule } from './building-blocks/building-blocks.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { BooksModule } from './books/books.module';
 import { AuthModule } from './auth/auth.module';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from '@abacritt/angularx-social-login';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    BooksSpanComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, BooksSpanComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,9 +31,32 @@ import { AuthModule } from './auth/auth.module';
     BuildingBlocksModule,
     LandingPageModule,
     BooksModule,
-    AuthModule
+    AuthModule,
+    SocialLoginModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '338131212001-ecjtban40ms2m7tu4179i0cc6bb1vdvp.apps.googleusercontent.com'
+            ),
+          },
+          // {
+          //   id: FacebookLoginProvider.PROVIDER_ID,
+          //   provider: new FacebookLoginProvider('clientId'),
+          // },
+        ],
+        onError: (err) => {
+          console.error(err);
+        },
+      } as SocialAuthServiceConfig,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

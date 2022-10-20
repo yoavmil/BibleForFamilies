@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, NgForm } from '@angular/forms';
+import { UntypedFormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserDto } from '../User.dto';
@@ -12,7 +12,7 @@ import labels from './labels.json';
 })
 export class SignInComponent implements OnInit {
   public labels = labels;
-  form: FormControl = new FormControl('');
+  form: UntypedFormControl = new UntypedFormControl('');
   isLoading = false;
 
   constructor(public authService: AuthService, private router: Router) {}
