@@ -23,7 +23,7 @@
     "@angular/router": "^14.2.6",
     "@hebcal/core": "^3.42.0",
     "@ts-stack/markdown": "^1.4.0",
-    "ngx-device-detector": "^3.0.0",
+    "ngx-device-detector": "^4.0.0",
     "rxjs": "~7.5.0",
     "zone.js": "~0.11.4"
   },
