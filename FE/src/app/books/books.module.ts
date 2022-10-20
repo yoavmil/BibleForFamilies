@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { DatesComponent } from './dates/dates.component';
 import { PrayersComponent } from './prayers/prayers.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PrayersComponent } from './prayers/prayers.component';
     CommentsComponent,
     DatesComponent,
     PrayersComponent,
+    ArticlesComponent,
   ],
   imports: [
     CommonModule,

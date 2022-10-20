@@ -1,0 +1,7 @@
+/* this doesnt work */
+body > iframe {
+  width: 100%;
+}
+#iframeWrapper > iframe, iframe {
+  width: 100%;
+}
