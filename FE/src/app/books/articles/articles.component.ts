@@ -11,12 +11,14 @@ export class ArticlesComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    let iframe = document.getElementById('iframe')! as HTMLIFrameElement;
+
     let idString = this.activeRoute.snapshot.paramMap.get('id');
     if (!idString) idString = '1000';
     let id = parseInt(idString);
     const result = this.articles.find((c: any) => c.id == id);
     if (result) {
-      document.getElementById('iframeWrapper')!.innerHTML = result.iframe;
+      iframe.src = result.src;
     }
   }
 }
