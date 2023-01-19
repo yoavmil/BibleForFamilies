@@ -8,6 +8,7 @@ import { ArticlesComponent } from './books/articles/articles.component';
 import { DatesComponent } from './books/dates/dates.component';
 import { GeneralComponent } from './books/general/general.component';
 import { PrayersComponent } from './books/prayers/prayers.component';
+import { SpeechesComponent } from './books/speeches/speeches.component';
 import { YehoshuaComponent } from './books/yehoshua/yehoshua.component';
 import { MainComponent } from './landing-page/main/main.component';
 
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'General/:id', component: GeneralComponent },
   { path: 'HowToLearn', redirectTo: 'General/0' },
   { path: 'dates', component: DatesComponent },
+  { path: 'speeches', component: SpeechesComponent },
   { path: 'prayers', component: PrayersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
