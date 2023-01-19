@@ -21,7 +21,9 @@ export class DatesComponent implements OnInit {
   private buildCrhonoData() {
     for (let id of this.data.chrono) {
       let entry = this.data.dates.find((elem: any) => elem.id == id);
-      entry.date = [entry.cycle, entry.year].join(', ');
+      entry.date = entry.cycle
+        ? [entry.cycle, entry.year].join(', ')
+        : entry.year;
       this.chrono.push(entry);
     }
   }
