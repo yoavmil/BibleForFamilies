@@ -7,13 +7,13 @@ export interface BookNode {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookTreeService {
   public bookData: BookNode[] = [
     {
       name: 'יהושע',
-      link: 'Yehoshua'
+      link: 'Yehoshua',
     },
     {
       name: 'שופטים',
@@ -22,6 +22,7 @@ export class BookTreeService {
           name: 'מגילת רות',
         },
       ],
+      link: 'Shoftim',
     },
     {
       name: 'שמואל א+ב',
@@ -34,14 +35,12 @@ export class BookTreeService {
         { name: 'יונה' },
         { name: 'עמוס' },
         { name: 'דברי הימים' },
-        { name: 'ישעיה' }
+        { name: 'ישעיה' },
       ],
     },
     {
       name: 'ירמיה',
-      children: [
-        { name: 'מגילת איכה' }
-      ]
+      children: [{ name: 'מגילת איכה' }],
     },
     { name: 'יחזקאל' },
     { name: 'דניאל' },

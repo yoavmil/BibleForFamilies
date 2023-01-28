@@ -8,6 +8,7 @@ import { ArticlesComponent } from './books/articles/articles.component';
 import { DatesComponent } from './books/dates/dates.component';
 import { GeneralComponent } from './books/general/general.component';
 import { PrayersComponent } from './books/prayers/prayers.component';
+import { ShoftimComponent } from './books/shoftim/shoftim.component';
 import { SpeechesComponent } from './books/speeches/speeches.component';
 import { YehoshuaComponent } from './books/yehoshua/yehoshua.component';
 import { MainComponent } from './landing-page/main/main.component';
@@ -16,6 +17,8 @@ const appRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'Yehoshua/:id', component: YehoshuaComponent },
   { path: 'Yehoshua', redirectTo: 'Yehoshua/0' },
+  { path: 'Shoftim/:id', component: ShoftimComponent },
+  { path: 'Shoftim', redirectTo: 'Shoftim/0' },
   { path: 'General/:id', component: GeneralComponent },
   { path: 'HowToLearn', redirectTo: 'General/0' },
   { path: 'dates', component: DatesComponent },

@@ -1,0 +1,28 @@
+{
+  "chapters": [
+    {
+      "id": 1000,
+      "title": "ספר שופטים - הקדמה",
+      "cards": [
+        {
+          "title": "",
+          "paragraphs": []
+        },
+        {
+          "title": "מתי?",
+          "paragraphs": []
+        }
+      ]
+    },
+    {
+      "id": 2000,
+      "title": "פרק א - פתיחה",
+      "cards": [
+        {
+          "title": "מה בפרק",
+          "paragraphs": []
+        }
+      ]
+    }
+  ]
+}
