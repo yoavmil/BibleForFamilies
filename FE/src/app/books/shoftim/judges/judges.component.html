@@ -1,0 +1,28 @@
+<div class="vertical-wrapper">
+<h2>{{ labels.judgesList }}</h2>
+<table dir="rtl" mat-table [dataSource]="judges" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>{{ labels.name }}</mat-header-cell>
+    <mat-cell *matCellDef="let entry">{{ entry.name }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="tribe">
+    <mat-header-cell *matHeaderCellDef>{{ labels.tribe }}</mat-header-cell>
+    <mat-cell *matCellDef="let entry">{{ entry.tribe }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="enemy">
+    <mat-header-cell *matHeaderCellDef>{{ labels.enemy }}</mat-header-cell>
+    <mat-cell *matCellDef="let entry">{{ entry.enemy }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="source">
+    <mat-header-cell *matHeaderCellDef>{{ labels.source }}</mat-header-cell>
+    <mat-cell *matCellDef="let entry">{{ entry.source }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="timespan">
+    <mat-header-cell *matHeaderCellDef>{{ labels.timespan }}</mat-header-cell>
+    <mat-cell *matCellDef="let entry">{{ entry.timespan }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="judgesCols"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: judgesCols"></mat-row>
+</table>
+</div>

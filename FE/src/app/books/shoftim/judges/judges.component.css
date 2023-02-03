@@ -1,0 +1,13 @@
+table.mat-table {
+  border-spacing: 0;
+  direction: rtl;
+  width: 75%;
+}
+
+.vertical-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
