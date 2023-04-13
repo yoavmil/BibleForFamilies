@@ -11,10 +11,13 @@ body {
   /*Angular dark gray*/
   --alternate-background-color: #424242;
   --mobile-min-width: 360px;
+  --max-width: 1366px;
   --card-padding: 16px;
   --nominal-card-width: 25rem;
-  --bs-x: 0; /* box shadow */
-  --bs-y: 0; /* box shadow */
+  --bs-x: 0;
+  /* box shadow */
+  --bs-y: 0;
+  /* box shadow */
 }
 
 .RTL {
@@ -29,5 +32,6 @@ mat-card,
 mat-expansion-panel {
   /* move shadow by mouse position */
   box-shadow: var(--bs-x) var(--bs-y) #669d31 !important;
-  transition: none !important; /* allow smooth dynamic shadow*/
+  transition: none !important;
+  /* allow smooth dynamic shadow*/
 }
