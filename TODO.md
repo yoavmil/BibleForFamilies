@@ -27,6 +27,7 @@ Im [here](https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/
     * ~~hash password~~
         * ~~bcrypt~~
     * FE routes guard
+    * check OpenSource SSO services such as Gluu and Keycloak
 * comments
     * ~~comments by page~~
     * comment on comment
