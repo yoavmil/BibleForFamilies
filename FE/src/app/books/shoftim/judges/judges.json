@@ -41,6 +41,27 @@
       "enemy": "מדין",
       "source": "ו-ח",
       "timespan": 40
+    },
+    {
+      "name": "תולע בן פואה",
+      "tribe": "ישככר",
+      "enemy": "",
+      "source": "י",
+      "timespan": 23
+    },
+    {
+      "name": "יאיר הגלעדי",
+      "tribe": "מנשה",
+      "enemy": "",
+      "source": "י",
+      "timespan": 22
+    },
+    {
+      "name": "יפתח הגלעדי",
+      "tribe": "מנשה",
+      "enemy": "עמון",
+      "source": "יא-יב",
+      "timespan": 6
     }
   ]
 }
