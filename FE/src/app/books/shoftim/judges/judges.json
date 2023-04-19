@@ -29,7 +29,7 @@
       "timespan": 40
     },
     {
-      "name": "שמגר בן ענת",
+      "name": "ברק בן אבינועם",
       "tribe": "נפתלי",
       "enemy": "יבין מלך כנען",
       "source": "ד-ה",
@@ -62,6 +62,27 @@
       "enemy": "עמון",
       "source": "יא-יב",
       "timespan": 6
+    },
+    {
+      "name": "אבצן מבית לחם",
+      "tribe": "יהודה",
+      "enemy": "",
+      "source": "יב",
+      "timespan": 7
+    },
+    {
+      "name": "אילון הזבולוני",
+      "tribe": "זבולון",
+      "enemy": "",
+      "source": "יב",
+      "timespan": 10
+    },
+    {
+      "name": "עבדון בן הלל",
+      "tribe": "אפרים",
+      "enemy": "",
+      "source": "יב",
+      "timespan": 8
     }
   ]
 }
