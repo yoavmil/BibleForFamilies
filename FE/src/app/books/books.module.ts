@@ -19,6 +19,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { SpeechesComponent } from './speeches/speeches.component';
 import { ShoftimComponent } from './shoftim/shoftim.component';
 import { JudgesComponent } from './shoftim/judges/judges.component';
+import { ShmuelComponent } from './shmuel/shmuel.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { JudgesComponent } from './shoftim/judges/judges.component';
     SpeechesComponent,
     ShoftimComponent,
     JudgesComponent,
+    ShmuelComponent,
   ],
   imports: [
     CommonModule,

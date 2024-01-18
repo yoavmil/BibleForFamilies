@@ -13,6 +13,7 @@ import { ShoftimComponent } from './books/shoftim/shoftim.component';
 import { SpeechesComponent } from './books/speeches/speeches.component';
 import { YehoshuaComponent } from './books/yehoshua/yehoshua.component';
 import { MainComponent } from './landing-page/main/main.component';
+import { ShmuelComponent } from './books/shmuel/shmuel.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -21,6 +22,8 @@ const appRoutes: Routes = [
   { path: 'Shoftim/list', component: JudgesComponent },
   { path: 'Shoftim/:id', component: ShoftimComponent },
   { path: 'Shoftim', redirectTo: 'Shoftim/0' },
+  { path: 'Shmuel/:id', component: ShmuelComponent },
+  { path: 'Shmuel', redirectTo: 'Shmuel/0' },
   { path: 'General/:id', component: GeneralComponent },
   { path: 'HowToLearn', redirectTo: 'General/0' },
   { path: 'dates', component: DatesComponent },

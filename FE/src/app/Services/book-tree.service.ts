@@ -27,6 +27,7 @@ export class BookTreeService {
     {
       name: 'שמואל א+ב',
       children: [{ name: 'תהלים' }],
+      link: 'Shmuel',
     },
     {
       name: 'מלכים א+ב',
